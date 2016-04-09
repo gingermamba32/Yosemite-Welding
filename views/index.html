@@ -1,0 +1,433 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-touch no-js"> <!--<![endif]-->
+<head>
+
+  <!-- Basic page needs ================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  
+  <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png" />
+  
+
+  <!-- Title and description ================================================== -->
+  <title>
+  Yosemite Welding
+  </title>
+
+
+    <meta name="description" content="Yosemite Welding Splash Page">
+
+
+  <!-- Helpers ================================================== -->
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  {% if settings.ajax_cart_method != 'page' %}
+  <!-- Ajaxify Cart Plugin ================================================== -->
+  {{ 'ajaxify.scss.css' | asset_url | stylesheet_tag }}
+  {% endif %}
+
+  <!-- CSS ================================================== -->
+  {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
+  {% include 'google-fonts' %}
+
+  <!-- Header hook for plugins ================================================== -->
+  {{ content_for_header }}
+
+  {% include 'oldIE-js' %}
+
+  {% comment %}
+    If you store has customers disabled, you can remove the following JS file
+  {% endcomment %}
+  {% if template contains 'customers' %}
+    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+    {{ 'customer_area.js'  | shopify_asset_url | script_tag }}
+  {% endif %}
+
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
+  {{ 'modernizr.min.js' | asset_url | script_tag }}
+  
+  {{ 'font-awesome.min.css' | asset_url | stylesheet_tag }}
+  
+  
+
+</head>
+
+<body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
+
+  <header class="site-header" role="banner">
+    <div class="wrapper header-wrapper">
+
+      <div class="grid--full">
+        <div class="grid-item large--one-half">
+          {% if template == 'index' %}
+            <h1 class="header-logo" itemscope itemtype="http://schema.org/Organization">
+          {% else %}
+            <div class="h1 header-logo" itemscope itemtype="http://schema.org/Organization">
+          {% endif %}
+            {% if settings.logo_use_image %}
+              <a href="/" itemprop="url">
+                <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
+              </a>
+            {% else %}
+              <a href="/" itemprop="url">Call us! (209) 874-6140</a>
+            {% endif %}
+          {% if template == 'index' %}
+            </h1>
+          {% else %}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="grid-item large--one-half text-center large--text-right">
+          {% if settings.header_message != blank or shop.customer_accounts_enabled %}
+            <div class="site-header--text-links{% if settings.header_message == blank %} medium-down--hide{% endif %}">
+              {% if settings.header_message != blank %}
+                {{ settings.header_message }}
+              {% endif %}
+
+              {% if shop.customer_accounts_enabled %}
+                <span class="site-header--meta-links medium-down--hide">
+                  {% if customer %}
+                    {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
+                    {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }} &middot; {{ 'layout.customer.log_out' | t | customer_logout_link }}
+                  {% else %}
+                    {{ 'layout.customer.sign_in' | t | customer_login_link }}
+                    <span class="site-header--spacer">{{ 'layout.customer.or' | t }}</span>
+                    {{ 'layout.customer.create_account' | t | customer_register_link }}
+                  {% endif %}
+                </span>
+              {% endif %}
+            </div>
+
+            <br class="medium-down--hide">
+          {% endif %}
+
+          {% include 'search-bar' %}
+
+          <a href="/cart" class="header-cart-btn cart-toggle">
+            <span class="icon icon-cart"></span>
+            {{ 'layout.cart.cart' | t }} <span class="cart-count cart-badge--desktop {% if cart.item_count == 0 %}hidden-count{% endif %}">{{ cart.item_count }}</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </header>
+<div class="mountain-div">
+       <img class="mountain-image" src="{{ "logo-mountain.png" | asset_url }}" alt="logo" align="center"/>
+</div>
+  
+  <nav class="nav-bar" role="navigation">
+    <div class="wrapper"> 
+	  {% include 'search-bar' %}
+      {% include 'site-nav' %}
+    </div>
+  </nav> 
+<!--      <table cellspacing="0" cellpadding="0" align="center" class="nav-table" border="0px">
+        <tr>
+          <td class="table-float-bottom">
+            <a style="color: #000" href="/services">Services</a>
+          </td>
+          <td>
+            <a style="color: #000" href="/portfolio">Portfolio</a>
+          </td>
+          <td>
+            <a style="color: #000" href="/quotes">Get Quotes Today</a>
+          </td>
+          <td>
+            <h1 class="main-title"> YOSEMITE WELDING </h1>
+          </td>
+          <td>
+            <a style="color: #000" href="/about-us">About Us</a>
+          </td>
+          <td>
+            <a style="color: #000" href="/contact-us">Contact Us</a>
+          </td>
+          <td class="table-order">
+            <a href="/order">Place an Order</a>
+          </td>
+       </tr>
+      </table> -->
+  
+  
+ 
+
+  <div id="mobileNavBar">
+    <div class="display-table-cell">
+      <a class="menu-toggle mobileNavBar-link"><span class="icon icon-hamburger"></span>{{ 'layout.navigation.mobile_menu' | t }}</a>
+    </div>
+    <div class="display-table-cell">
+      <a href="/cart" class="cart-toggle mobileNavBar-link">
+        <span class="icon icon-cart"></span>
+        {{ 'layout.cart.cart' | t }} <span class="cart-count {% if cart.item_count == 0 %}hidden-count{% endif %}">{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </div>
+  
+  <div class="main-image-div">
+    <img class="main-image" src="{{ "main-image.jpg" | asset_url }}" alt="Welding" />
+  </div>
+  
+  
+  <main class="wrapper main-content" role="main">
+
+    {{ content_for_layout }}
+    
+  </main>
+  
+<!--  SOCIAL GRID    -->
+    <div class="grid social-grid" >
+      <div class="grid-item medium--one-half large--one-half align-center">
+        <h1 class="strike-line"><span class="social-header">See us in action</span></h1>
+        <ul>
+            <li>
+              <a href="http://www.facebook.com"><img src="{{ "facebook-logo.png" | asset_url }}" alt="social" /></a>
+            </li>
+            <li>
+              <a href="http://www.instagram.com"><img src="{{ "instagram-icon.png" | asset_url }}" alt="social" /></a>
+            </li>
+        </ul>
+        <p class="social-text">
+        	See us in our element and witness the culture we have built to create a great team environment for passionate welders and problem solvers.
+        </p>
+      </div>
+      
+      
+      <div class="grid-item medium--one-half large--one-half align-center">
+        <h1 class="strike-line"><span class="social-header">Tell us how we are doing</span></h1>
+        <ul>
+            <li>
+              <a href="http://yelp.com"><img src="{{ "yelp-icon.png" | asset_url }}" alt="social" width="200%"/></a>
+            </li>
+            <li>
+              <a href="http://yellowpages.com"><img src="{{ "yp-icon.png" | asset_url }}" alt="social" width="200%"/></a>
+            </li>
+        </ul>
+        <p class="social-text">We strive to be better every single day and we cannot do this without you. Help us become better by telling us what you think.</p>
+      </div>
+      
+    </div>
+<!-- END SOCIAL GRID -->
+  
+  {% capture theme_settings_link %}<a href="/admin/themes/{{ theme.id }}/settings">{{ 'layout.footer.theme_settings' | t }}</a>{% endcapture %}
+
+  <footer class="site-footer small--text-center footer-padding" role="contentinfo">
+
+    <div class="wrapper">
+      
+      
+
+      <div class="grid" >
+
+        
+          <div class="grid-item medium--one-half large--eight-twelfths align-center">
+            <ul class="footer-items">
+              {% for link in linklists[settings.footer_quicklinks_linklist].links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {% else %}
+                {% capture theme_settings_footer_linklist_path %}<strong>Footer</strong> > <strong>Quick links link list</strong>{% endcapture %}
+                {{ 'layout.footer.instructions_for_linklist_html' | t: theme_settings_link: theme_settings_link, theme_settings_footer_linklist_path: theme_settings_footer_linklist_path }}
+              {% endfor %}
+            </ul>
+          </div>
+        
+        
+        <div class="grid-item medium--one-half large--four-twelfths align-center">
+          <ul class="social-footer-links">
+            <li>
+              <a href="http://www.facebook.com"><img src="{{ "facebook-logo.png" | asset_url }}" alt="social" width="55%"/></a>
+            </li>
+            <li>
+              <a href="http://www.instagram.com"><img src="{{ "instagram-icon.png" | asset_url }}" alt="social" width="55%"/></a>
+            </li>
+            <li>
+              <a href="http://yelp.com"><img src="{{ "yelp-icon.png" | asset_url }}" alt="social" width="55%"/></a>
+            </li>
+            <li>
+              <a href="http://yellowpages.com"><img src="{{ "yp-icon.png" | asset_url }}" alt="social" width="55%"/></a>
+            </li>
+          </ul>
+        </div>
+      
+
+        
+<!--     SOCIAL PART OF THE GRID     -->
+	
+<!--       {% if settings.footer_content_enable or settings.footer_social_enable %}
+        <div class="grid-item medium--one-half large--five-twelfths">
+          {% if settings.footer_social_enable %}
+            <ul class="inline-list social-icons">
+              {% if settings.social_twitter_link != blank %}
+                <li>
+                  <a class="icon-fallback-text" href="{{ settings.social_twitter_link }}" title="{{ 'layout.footer.store_on_social_network' | t: store_name: shop.name, social_network: 'Twitter' | escape }}">
+                    <span class="icon icon-twitter" aria-hidden="true"></span>
+                    <span class="fallback-text">Twitter</span>
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_facebook_link != blank %}
+                <li>
+                  TEST <a class="icon-fallback-text" href="{{ settings.social_facebook_link }}" title="{{ 'layout.footer.store_on_social_network' | t: store_name: shop.name, social_network: 'Facebook' | escape }}">
+                    <span class="icon icon-facebook" aria-hidden="true"></span>
+                    <span class="fallback-text">Facebook</span>
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_pinterest_link != blank %}
+                <li>
+                  <a class="icon-fallback-text" href="{{ settings.social_pinterest_link }}" title="{{ 'layout.footer.store_on_social_network' | t: store_name: shop.name, social_network: 'Pinterest' | escape }}">
+                    <span class="icon icon-pinterest" aria-hidden="true"></span>
+                    <span class="fallback-text">Pinterest</span>
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_google_plus_link != blank %}
+                <li>
+                  <a class="icon-fallback-text" href="{{ settings.social_google_plus_link }}" title="{{ 'layout.footer.store_on_social_network' | t: store_name: shop.name, social_network: 'Google' | escape }}" rel="publisher">
+                    <span class="icon icon-google_plus" aria-hidden="true"></span>
+                    <span class="fallback-text">Google</span>
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_instagram_link != blank %}
+                <li>
+                  <a class="icon-fallback-text" href="{{ settings.social_instagram_link }}" title="{{ 'layout.footer.store_on_social_network' | t: store_name: shop.name, social_network: 'Instagram' | escape }}">
+                    <span class="icon icon-instagram" aria-hidden="true"></span>
+                    <span class="fallback-text">Instagram</span>
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_tumblr_link != blank %}
+                <li>
+                  <a class="icon-fallback-text" href="{{ settings.social_tumblr_link }}" title="{{ 'layout.footer.store_on_social_network' | t: store_name: shop.name, social_network: 'Tumblr' | escape }}">
+                    <span class="icon icon-tumblr" aria-hidden="true"></span>
+                    <span class="fallback-text">Tumblr</span>
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_youtube_link != blank %}
+                <li>
+                  <a class="icon-fallback-text" href="{{ settings.social_youtube_link }}" title="{{ 'layout.footer.store_on_social_network' | t: store_name: shop.name, social_network: 'YouTube' | escape }}">
+                    <span class="icon icon-youtube" aria-hidden="true"></span>
+                    <span class="fallback-text">YouTube</span>
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_vimeo_link != blank %}
+                <li>
+                  <a class="icon-fallback-text" href="{{ settings.social_vimeo_link }}" title="{{ 'layout.footer.store_on_social_network' | t: store_name: shop.name, social_network: 'Vimeo' | escape }}">
+                    <span class="icon icon-vimeo" aria-hidden="true"></span>
+                    <span class="fallback-text">Vimeo</span>
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_fancy_link != blank %}
+                <li>
+                  <a class="icon-fallback-text" href="{{ settings.social_fancy_link }}" title="{{ 'layout.footer.store_on_social_network' | t: store_name: shop.name, social_network: 'Fancy' | escape }}">
+                    <span class="icon icon-fancy" aria-hidden="true"></span>
+                    <span class="fallback-text">Fancy</span>
+                  </a>
+                </li>
+              {% endif %}
+            </ul>
+          {% endif %}
+        </div>
+        {% endif %}
+
+        {% if settings.footer_newsletter_enable %}
+        <div class="grid-item large--one-third">
+          <h3>{{ 'layout.footer.newsletter_title' | t }}</h3>
+          {% include 'newsletter-form' %}
+        </div>
+        {% endif %}
+      
+      </div> -->
+        
+      
+
+<!--       <hr class="hr--small"> -->
+
+<!--       <div class="grid">
+        <div class="grid-item{% unless shop.enabled_payment_types == empty %} large--two-fifths{% endunless %}">
+          {% if settings.footer_legallinks_enable %}
+            <ul class="legal-links inline-list">
+              {% for link in linklists[settings.footer_legallinks_linklist].links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+          <ul class="legal-links inline-list">
+            <li>
+              &copy; {{ 'now' | date: "%Y" }} {{ shop.name | link_to: '/' }}
+            </li>
+            <li>
+              {{ powered_by_link }}
+            </li>
+          </ul>
+        </div>
+
+        {% unless shop.enabled_payment_types == empty %}
+          <div class="grid-item large--three-fifths large--text-right">
+            <ul class="inline-list payment-icons">
+              {% for type in shop.enabled_payment_types %}
+                <li>
+                  <span class="icon-fallback-text">
+                    <span class="icon icon-{{ type }}" aria-hidden="true"></span>
+                    <span class="fallback-text">{{ type | replace: '_',' ' }}</span>
+                  </span>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endunless %}
+
+      </div>  -->
+    </div>
+
+    
+
+  </footer>
+
+  {{ 'fastclick.min.js' | asset_url | script_tag }}
+
+  {{ 'shop.js' | asset_url | script_tag }}
+
+  {% if template == 'index' and hero_enabled %}
+    {{ 'jquery.flexslider.min.js' | asset_url | script_tag }}
+  {% endif %}
+
+  <script>
+  var moneyFormat = '{{ shop.money_format }}';
+  </script>
+
+{% if settings.ajax_cart_method != 'page' %}
+  {{ 'handlebars.min.js' | asset_url | script_tag }}
+  {% include 'ajax-cart-template' %}
+  {{ 'ajaxify.js' | asset_url | script_tag }}
+  <script>
+  jQuery(function($) {
+    ajaxifyShopify.init({
+      method: '{{ settings.ajax_cart_method }}',
+      wrapperClass: 'wrapper',
+      formSelector: '#addToCartForm',
+      addToCartSelector: '#addToCart',
+      cartCountSelector: '.cart-count',
+      toggleCartButton: '.cart-toggle',
+      useCartTemplate: true,
+      btnClass: 'btn',
+      moneyFormat: {{ shop.money_format | json }},
+      disableAjaxCart: false,
+      enableQtySelectors: true
+    });
+  });
+  </script>
+{% endif %}
+
+</body>
+</html>
