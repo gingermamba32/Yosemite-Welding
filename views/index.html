@@ -27,31 +27,12 @@
   <link rel="canonical" href="{{ canonical_url }}">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  {% if settings.ajax_cart_method != 'page' %}
-  <!-- Ajaxify Cart Plugin ================================================== -->
-  {{ 'ajaxify.scss.css' | asset_url | stylesheet_tag }}
-  {% endif %}
 
   <!-- CSS ================================================== -->
   {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
   {% include 'google-fonts' %}
-
-  <!-- Header hook for plugins ================================================== -->
-  {{ content_for_header }}
-
-  {% include 'oldIE-js' %}
-
-  {% comment %}
-    If you store has customers disabled, you can remove the following JS file
-  {% endcomment %}
-  {% if template contains 'customers' %}
-    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
-    {{ 'customer_area.js'  | shopify_asset_url | script_tag }}
-  {% endif %}
-
   {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
   {{ 'modernizr.min.js' | asset_url | script_tag }}
-  
   {{ 'font-awesome.min.css' | asset_url | stylesheet_tag }}
   
   
@@ -119,14 +100,17 @@
 
     </div>
   </header>
+
 <div class="mountain-div">
        <img class="mountain-image" src="{{ "logo-mountain.png" | asset_url }}" alt="logo" align="center"/>
 </div>
   
   <nav class="nav-bar" role="navigation">
     <div class="wrapper"> 
-	  {% include 'search-bar' %}
-      {% include 'site-nav' %}
+      <ul>
+      <li>
+      </li>
+    </ul>
     </div>
   </nav> 
 <!--      <table cellspacing="0" cellpadding="0" align="center" class="nav-table" border="0px">
@@ -162,12 +146,12 @@
     <div class="display-table-cell">
       <a class="menu-toggle mobileNavBar-link"><span class="icon icon-hamburger"></span>{{ 'layout.navigation.mobile_menu' | t }}</a>
     </div>
-    <div class="display-table-cell">
+<!--     <div class="display-table-cell">
       <a href="/cart" class="cart-toggle mobileNavBar-link">
         <span class="icon icon-cart"></span>
         {{ 'layout.cart.cart' | t }} <span class="cart-count {% if cart.item_count == 0 %}hidden-count{% endif %}">{{ cart.item_count }}</span>
       </a>
-    </div>
+    </div> -->
   </div>
   
   <div class="main-image-div">
