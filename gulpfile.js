@@ -4,6 +4,7 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var jshint = require('gulp-jshint');
 var nodemon = require('gulp-nodemon');
+var sass = require('gulp-sass');
 
 
 // configure the jshint task
@@ -18,6 +19,16 @@ gulp.task('watch', function() {
   gulp.watch('routes/*.js', ['jshint']);
 });
 
+gulp.task('sass', function () {
+  return gulp.src('./public/stylesheets/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./public/stylesheets'));
+});
+
+gulp.task('sass:watch', function () {
+  gulp.watch('./public/stylesheets/*.scss', ['sass']);
+});
+
 gulp.task('start', function () {
   nodemon({
     script: './bin/www'
@@ -26,4 +37,4 @@ gulp.task('start', function () {
   })
 })
 
-gulp.task('default', ['watch', 'start']);
+gulp.task('default', ['watch', 'sass', 'sass:watch', 'start']);
