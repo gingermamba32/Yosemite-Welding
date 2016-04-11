@@ -24,13 +24,13 @@
 
 
   <!-- Helpers ================================================== -->
-  <link rel="canonical" href="{{ canonical_url }}">
+
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
 
   <!-- CSS ================================================== -->
+  <link rel="stylesheet" href="mystyle.css">
   {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
-  {% include 'google-fonts' %}
   {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
   {{ 'modernizr.min.js' | asset_url | script_tag }}
   {{ 'font-awesome.min.css' | asset_url | stylesheet_tag }}
