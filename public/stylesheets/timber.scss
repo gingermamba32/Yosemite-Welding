@@ -141,61 +141,16 @@ $passwordPageUseBgImage: true;
 
 /*================ Typography ================*/
 
-/*============================================================================
-  Get font-families from theme settings
-==============================================================================*/
-{% if settings.type_base_family contains 'Google' %}
-  {% assign type_base_parts = settings.type_base_family | split: '_' %}
-  {% assign type_base_name = type_base_parts[1] %}
-  {% capture base_family %}"{{ type_base_name | split: ':' | first | replace: '+', ' ' }}"{% if type_base_parts.last == 'serif' %}, serif {% else %}, "HelveticaNeue", "Helvetica Neue", sans-serif{% endif %}{% endcapture %}
-{% else %}
-  {% assign base_family = settings.type_base_family %}
-{% endif %}
-
-{% if settings.type_header_family contains 'Google' %}
-  {% assign type_header_parts = settings.type_header_family | split: '_' %}
-  {% assign type_header_name = type_header_parts[1] %}
-  {% capture header_family %}"{{ type_header_name | split: ':' | first | replace: '+', ' ' }}"{% if type_header_parts.last == 'serif' %}, serif {% else %}, "HelveticaNeue", "Helvetica Neue", sans-serif{% endif %}{% endcapture %}
-  {% assign header_weight = type_header_parts[2] %}
-{% else %}
-  {% assign header_family = settings.type_header_family %}
-  {% assign header_weight = 700 %}
-{% endif %}
-
-{% if settings.type_accent_family contains 'Google' %}
-  {% assign type_accent_parts = settings.type_accent_family | split: '_' %}
-  {% assign type_accent_name = type_accent_parts[1] %}
-  {% capture accent_family %}"{{ type_accent_name | split: ':' | first | replace: '+', ' ' }}"{% if type_accent_parts.last == 'serif' %}, serif {% else %}, "HelveticaNeue", "Helvetica Neue", sans-serif{% endif %}{% endcapture %}
-  {% assign accent_weight = type_accent_parts[2] %}
-{% else %}
-  {% assign accent_family = settings.type_accent_family %}
-  {% assign accent_weight = 500 %}
-{% endif %}
-
-// Header Font
-$headerFontStack: {{ header_family }};
-$headerFontWeight: {{ header_weight }};
-
-// Body Font
-$bodyFontStack: {{ base_family }};
-$baseFontSize: {{ settings.type_base_size }};
-
-// Navigation and Button Font
-$accentFontStackBold: {{ accent_family }};
-$accentFontWeight: {{ accent_weight }};
+$bodyFontStack:   "Helvetica Neue" ,Helvetica, sans-serif;
+$headerFontStack:   "Helvetica Neue" ,Helvetica, sans-serif;
+$headerFontWeight:   700;
+$baseFontSize: 18px;
+$accentFontStackBold: 700;
+$accentFontWeight: 700;
+$socialIconFontStack: "Helvetica Neue" ,Helvetica, sans-serif;
 
 // Icons
-@font-face {
-  font-family: "icons";
-  src: url('{{ 'icons.eot' | asset_url }}');
-  src: url('{{ 'icons.eot' | asset_url }}#iefix') format("embedded-opentype"),
-       url('{{ 'icons.woff' | asset_url }}') format("woff"),
-       url('{{ 'icons.ttf' | asset_url }}') format("truetype"),
-       url('{{ 'icons.svg' | asset_url }}#timber-icons') format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-$socialIconFontStack: 'icons';
+
 
 /*============================================================================
   #Sass Mixins
@@ -850,9 +805,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.4;
   font-family: $headerFontStack;
   font-weight: $headerFontWeight;
-  {% if settings.type_header_transform %}
-  text-transform: uppercase;
-  {% endif %}
+  
 
   a {
     text-decoration: none;
@@ -1205,16 +1158,14 @@ html input[disabled] {
   font: {
     family: $accentFontStackBold;
     weight: $accentFontWeight;
-    size: {{ settings.type_button_size }};
+    size: 18px;
   };
-  {% if settings.type_button_transform %}
-  text-transform: uppercase;
-  {% endif %}
+  
   @include transition(background-color 0.2s ease-out);
 
   &.btn--small {
     padding: 8px 12px 7px;
-    font-size: {{ settings.type_button_size }} - 2;
+    font-size: 18px - 2;
   }
 
   &.btn--full {
@@ -1497,7 +1448,7 @@ select {
           appearance: none;
   background-position: right center;
   background: {
-    image: url('{{ 'arrow-down.svg' | asset_url }}');
+    
     repeat: no-repeat;
     position: right 10px center;
     color: transparent;
@@ -1759,7 +1710,7 @@ label.error {
 
   li {
     margin: 0 $gutter/4 $gutter/4;
-    color: {{ settings.color_footer_social_link }};
+    color: #fff;
     cursor: default;
   }
 
@@ -1787,11 +1738,11 @@ label.error {
   }
 
   a {
-    color: {{ settings.color_footer_social_link }};
+    color: #fff;
     @include transition(color 0.2s ease-out);
 
     &:hover {
-      color: darken({{ settings.color_footer_social_link }}, 15%);
+      color: darken(#fff, 15%);
       @include transition(color 0.05s ease-in);
     }
   }
@@ -2133,7 +2084,7 @@ $shareBorderColor: #ececec;
 
 .header-logo {
   margin: $gutter auto;
-  max-width: {{ settings.logo_max_width }}px;
+  max-width: 100px;
 
   @include at-query ($min, $large) {
     margin: 15px 0;
@@ -2249,7 +2200,7 @@ $shareBorderColor: #ececec;
     font: {
       family: $accentFontStackBold;
       weight: $accentFontWeight;
-      size: {{ settings.type_button_size }};
+      size: 18px;
     };
     line-height: 24px!important;
   }
@@ -2334,11 +2285,9 @@ $shareBorderColor: #ececec;
   font: {
     family: $accentFontStackBold;
     weight: $accentFontWeight;
-    size: {{ settings.type_navigation_size }};
+    size: 18px;
   };
-  {% if settings.type_navigation_transform %}
-  text-transform: uppercase;
-  {% endif %}
+  
   cursor: default;
 
   li {
@@ -4074,7 +4023,7 @@ img.mfp-img {
 
 .spr-badge-starrating,
 .spr-icon {
-  color: {{ settings.product_reviews_star_color }};
+  color: #000;
   font-size: inherit;
 }
 
@@ -4108,7 +4057,7 @@ img.mfp-img {
   width: 100%;
 
   @if $passwordPageUseBgImage {
-    background-image: url({{ 'password-page-background.jpg' | asset_url }});
+    
     background-size: cover;
     background-repeat: no-repeat;
     color: #ffffff;
@@ -4139,7 +4088,7 @@ img.mfp-img {
   margin-top: 3 * $gutter;
 
   .logo {
-    width: {{ settings.logo_max_width }}px;
+    width: 18px;
     max-width: 100%;
   }
 }
@@ -4440,12 +4389,13 @@ table td {
     border-bottom: 1px solid #ddd;
     line-height: 0;
     padding: 0; 
+    color: #666;
 }
 
 .social-header {
   font-size: 16px;
   font-weight: 200;
-  color: #666;
+  color: #666 !important;
   text-align: center;
   background: #fff;
   padding: 0 15px;
@@ -4458,4 +4408,8 @@ table td {
   font-size: 15px;
   width: 75%;
   margin: auto;
+}
+
+.header-link {
+  color: #fff;
 }
