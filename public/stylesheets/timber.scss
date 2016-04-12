@@ -79,9 +79,9 @@ $breakpoint-has-pull:  ('medium', 'medium-down', 'large');
 ==============================================================================*/
 
 // Supply Theme Colors
-$colorPrimary: {{ settings.color_primary }};
-$colorSecondary: {{ settings.color_secondary }};
-$colorAccent: {{ settings.color_accent }};
+$colorPrimary: #204a80;
+$colorSecondary: #fff;
+$colorAccent: #fff;
 
 // Button colors
 $colorBtnPrimary: $colorPrimary;
@@ -97,28 +97,28 @@ $colorLink: $colorPrimary;
 $colorLinkHover: lighten($colorPrimary, 15%);
 
 // General colors
-$colorBody: {{ settings.color_body_bg }};
-$colorTextBody: {{ settings.color_body_text }};
-$colorHeaders: {{ settings.color_heading_text }};
+$colorBody: #fff;
+$colorTextBody: #000;
+$colorHeaders: #fff;
 
 // Border colors
-$colorBorder: {{ settings.color_borders }};
+$colorBorder: #000;
 
 // Site Header
-$headerBackground: {{ settings.color_header_background }};
-$headerText: {{ settings.color_header_text }};
-$headerButtonAndSearch: {{ settings.color_header_cart_search }};
+$headerBackground: #204a80;
+$headerText: #fff;
+$headerButtonAndSearch: #fff;
 
 // Nav background
-$colorNav: {{ settings.color_nav_bg }};
-$colorNavText: {{ settings.color_nav_text }};
+$colorNav: #204a80;
+$colorNavText: #fff;
 
 // Mobile Nav Bar
 $mobileNavBarHeight: 50px;
 
 // Site Footer
-$colorFooterBg: {{ settings.color_footer_bg }};
-$colorFooterText: {{ settings.color_footer_text }};
+$colorFooterBg: #204a80;
+$colorFooterText: #fff;
 
 // Helper colors
 $disabledGrey: #f6f6f6;
