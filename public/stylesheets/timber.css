@@ -4032,7 +4032,8 @@ table td {
 
 .site-nav {
   margin: 0 auto;
-  text-align: center; }
+  text-align: center;
+  font-weight: 500; }
 
 .footer-padding {
   padding: 10px 0px 0px 0px; }
@@ -4049,11 +4050,13 @@ table td {
 
 .footer-items li a {
   color: #fff;
-  font-size: 18px; }
+  font-size: 16px;
+  font-weight: 400; }
 
 .social-footer-links li {
   display: inline-block;
-  text-align: center; }
+  text-align: center;
+  padding-right: 0px; }
 
 .social-grid {
   padding-top: 5px;
@@ -4094,4 +4097,24 @@ table td {
   margin: auto; }
 
 .header-link {
-  color: #fff; }
+  color: #fff;
+  font-size: 18px; }
+
+.header-align-right {
+  text-align: right;
+  font-size: 80%; }
+
+.middle-nav-link {
+  font-size: 120%;
+  font-weight: 700; }
+
+.home-portfolio {
+  width: 100%; }
+
+.social-header-main {
+  font-size: 22px;
+  font-weight: 200;
+  color: #666 !important;
+  text-align: center;
+  background: #fff;
+  padding: 0 15px; }
