@@ -4023,7 +4023,7 @@ table td {
   text-align: center; }
 
 .main-image {
-  padding-bottom: 10px;
+  padding-bottom: 30px;
   width: 75%;
   max-width: 1100px; }
 
@@ -4060,7 +4060,12 @@ table td {
 
 .social-grid {
   padding-top: 50px;
-  padding-bottom: 30px; }
+  padding-bottom: 30px;
+  max-width: 1200px;
+  margin: 0 auto; }
+
+.social-grid ul {
+  padding-top: 15px; }
 
 .social-grid li {
   display: inline-block;
@@ -4120,7 +4125,7 @@ table td {
   padding: 0 15px; }
 
 .portfolio-text {
-  padding-top: 30px;
+  padding-top: 10px;
   background-color: #e6e6e6; }
 
 .portfolio-header {
@@ -4130,8 +4135,10 @@ table td {
   margin-bottom: 0px; }
 
 .portfolio-grid {
-  padding: 0 50px 40px;
-  background-color: #e6e6e6; }
+  padding: 15px 50px 40px;
+  background-color: #e6e6e6;
+  max-width: 1200px;
+  margin: 0 auto; }
 
 .portfolio-color {
   background-color: #e6e6e6;
