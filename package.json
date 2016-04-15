@@ -13,7 +13,9 @@
     "jade": "~1.9.1",
     "morgan": "~1.5.1",
     "node-sass": "^3.4.2",
+    "nodemailer": "^2.3.2",
     "path": "^0.12.7",
+    "sendgrid": "^2.0.0",
     "serve-favicon": "~2.2.0"
   },
   "devDependencies": {
@@ -25,4 +27,3 @@
     "jshint-stylish": "^2.0.1"
   }
 }
-
