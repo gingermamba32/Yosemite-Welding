@@ -150,30 +150,68 @@
   </div>
 </div>
 
-<form action="/send" method="POST" style="width: 300px; text-align: center; margin: 0 auto; padding-bottom: 75px;">
-    <input name="name" size="30" type="text" placeholder="name">
-    <input name="email" size="30" type="text" placeholder="email">
-    <input name="message" rows="7" cols="30" placeholder="message">
-    <input value="Send email" type="submit">
-</form>
-  
- <!--  ABOUT GRID -->
- 
+<div class="form-div">
+  <form action="/send" method="POST" style="width: 300px; text-align: center; margin: 0 auto; padding-bottom: 75px;">
+      <input name="name" size="30" type="text" placeholder="name">
+      <input name="email" size="30" type="text" placeholder="email">
+      <input name="message" rows="7" cols="30" placeholder="message">
+      <input value="Send email" type="submit">
+  </form>
+</div>
 
-  <div class="grid about-grid">
-    <div class="grid-item medium--one-half large--one-quarter align-center">
-      <img src="images/portfolio-home-1.jpg">
+    <form class="form-style-9">
+      <ul>
+      <li>
+          <input type="text" name="field1" class="field-style field-split align-left" placeholder="Name" required/>
+          <input type="email" name="field2" class="field-style field-split align-right" placeholder="Email" required/>
+
+      </li>
+      <li>
+      <input type="text" name="field3" class="field-style field-full align-none" placeholder="Subject" required/>
+      </li>
+      <li>
+      <textarea name="field5" class="field-style" placeholder="Message" required></textarea>
+      </li>
+      <li>
+      <input type="submit" value="Send" />
+      </li>
+      </ul>
+    </form>
+
+  
+ <!--  SOCIAL GRID    -->
+    <div class="grid social-grid" >
+      <div class="grid-item medium--one-half large--one-half align-center">
+        <h1  class="strike-line"><span class="social-header">See us in action</span></h1>
+        <ul>
+            <li>
+              <a href="http://www.facebook.com"><img src="images/facebook-logo1.png" alt="social" /></a>
+            </li>
+            <li>
+              <a href="http://www.instagram.com"><img src="images/instagram-icon1.png" alt="social" /></a>
+            </li>
+        </ul>
+        <p class="social-text">
+          See us in our element and witness the culture we have built to create a great team environment for passionate welders and problem solvers.
+        </p>
+      </div>
+      
+      
+      <div class="grid-item medium--one-half large--one-half align-center">
+        <h1 class="strike-line"><span class="social-header">Tell us how we are doing</span></h1>
+        <ul>
+            <li>
+              <a href="http://yelp.com"><img src="images/yelp-icon.png" alt="social" width="200%"/></a>
+            </li>
+            <li>
+              <a href="http://yellowpages.com"><img src="images/yp-icon.png" alt="social" width="200%"/></a>
+            </li>
+        </ul>
+        <p class="social-text">We strive to be better every single day and we cannot do this without you. Help us become better by telling us what you think.</p>
+      </div>
+      
     </div>
-    <div class="grid-item medium--one-half large--one-quarter align-center">
-      <img src="images/portfolio-home-2.jpg">
-    </div>
-    <div class="grid-item medium--one-half large--one-quarter align-center">
-      <img src="images/portfolio-home-3.jpg">
-    </div>
-    <div class="grid-item medium--one-half large--one-quarter align-center">
-        <img src="images/portfolio-home-4.jpg">
-    </div>
-  </div>
+<!-- END SOCIAL GRID -->
 
  
 
