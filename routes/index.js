@@ -3,8 +3,7 @@ var router = express.Router();
 var path = require('path');
 var nodemailer = require('nodemailer');
 
-var user = require('./password.js').email;
-var password = require('./password.js').pass;
+
 // heroku statuc file server
 process.env.PWD = process.cwd()
 
