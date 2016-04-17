@@ -4481,7 +4481,7 @@ table td {
 .about-header {
   text-align:center;
   margin-bottom: 0px;
-  padding-bottom: 10px;
+  padding-bottom: 50px;
 
 }
 .about-text {
@@ -4509,7 +4509,7 @@ table td {
     max-width: 850px;
     background: #ddd;
     padding: 30px;
-    margin: 50px auto;
+    margin: 25px auto;
     border-radius: 5px;;
     
 }
@@ -4575,8 +4575,40 @@ table td {
     background: linear-gradient(to bottom, #2D77A2 5%, #337DA8 100%);
     background-color: #28739E;
 }
+
+.contact-header{
+  text-align:center;
+  margin-bottom: 0px;
+  padding-bottom: 5px;
+  color: #666;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 28px;
+}
+
+.clearfixNav ul {
+        display: none;
+        height: auto;
+    }
 @media screen and (max-width:700px) {
   .form-style-9{
   width:100%;
+  }
+}
+
+@media screen and (max-width:769px) {
+  .header-wrapper{
+  display: none;
+  }
+  nav ul.active{
+  display:none;
+  }
+  .main-image-div{
+    padding-top: 23px;
+  }
+  .main-image{
+    width:95%;
+  }
+  .mobile-header{
+    float: right;
   }
 }

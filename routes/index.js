@@ -22,6 +22,10 @@ router.get('/contact-us', function(req, res, next) {
 	res.sendFile(path.join(process.env.PWD+'/contact-us.html'));
   //res.sendFile('/Users/michaelmontero/Desktop/StoreFrontTemplate/views/index.html');
 });
+router.get('/contact-us', function(req, res, next) {
+	res.sendFile(path.join(process.env.PWD+'/success.html'));
+  //res.sendFile('/Users/michaelmontero/Desktop/StoreFrontTemplate/views/index.html');
+});
 
 // Set up the sender......
 
@@ -31,7 +35,7 @@ router.get('/contact-us', function(req, res, next) {
 
 
 router.post('/send', function(req, res, next){
-	console.log(req.body.email);
+	console.log(req.body.email + 'sfsdfsdfsdf');
 
 	var transporter = nodemailer.createTransport({
         service: 'Gmail',
@@ -44,17 +48,17 @@ router.post('/send', function(req, res, next){
 	var mailOptions = {
     from: req.body.email, // sender address
     to: 'michaelm@beautyindustrygroup.com', // list of receivers
-    subject: 'Re: Contact Us -> ' + req.body.name, // Subject line
+    subject: 'Re: Contact Us -> ' + req.body.name + '/'+ req.body.email + ':' + req.body.subject, // Subject line
     text: req.body.message
 	};
 
 	transporter.sendMail(mailOptions, function(error, info){
     if(error){
         console.log(error);
-        res.json({yo: 'error'});
+        res.json({error: 'Please contact us here!'});
     } else{
         console.log('Message sent: ' + info.response);
-        res.json({yo: info.response});
+        res.redirect('/success.html');
     	};
 	});
 
