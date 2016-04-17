@@ -3973,7 +3973,8 @@ img.mfp-img {
 
 /*----------------------START OF EDITS ----------------*/
 .site-nav a {
-  color: #000; }
+  color: #000;
+  text-decoration: none; }
 
 .site-header {
   padding: 0px; }
@@ -4073,9 +4074,9 @@ table td {
   padding-right: 25px; }
 
 .social-grid img {
-  padding-bottom: 5px; }
+  padding-bottom: 8px; }
 
-.social-grid a {
+.social-grid img {
   border-bottom: 4px solid #204a80; }
 
 .strike-line {
@@ -4106,8 +4107,7 @@ table td {
   font-size: 18px; }
 
 .header-align-right {
-  text-align: right;
-  font-size: 80%; }
+  text-align: right; }
 
 .middle-nav-link {
   font-size: 120%;
@@ -4251,9 +4251,39 @@ table td {
   font-family: "Courier New", Courier, monospace;
   font-size: 28px; }
 
-.clearfixNav ul {
-  display: none;
-  height: auto; }
+.mnav ul li a {
+  color: #fff;
+  text-decoration: none; }
+
+.no-padding {
+  position: relative; }
+
+.port-img {
+  height: 100%;
+  max-width: none !important; }
+
+.adjust-grid {
+  width: 5.933% !important; }
+
+.portfolio-page-grid {
+  padding-top: 0px;
+  padding-bottom: 0px; }
+
+.hover-grid .hover-text {
+  position: relative;
+  bottom: 30px;
+  left: 0px;
+  visibility: hidden; }
+
+.hover-grid:hover .hover-text {
+  visibility: visible;
+  bottom: 60%;
+  color: #fff;
+  font-weigth: 700; }
+
+.port-img:hover {
+  opacity: 0.5;
+  filter: alpha(opacity=100); }
 
 @media screen and (max-width: 700px) {
   .form-style-9 {
@@ -4269,4 +4299,9 @@ table td {
   .main-image {
     width: 95%; }
   .mobile-header {
-    float: right; } }
+    float: right;
+    padding-right: 55px; } }
+
+@media screen and (max-width: 500px) {
+  .social-text {
+    padding-bottom: 20px; } }

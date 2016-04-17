@@ -32,8 +32,7 @@
   <link rel="stylesheet" href="stylesheets/timber.css">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-I6JCnqxMbC2DuiHjsoCiLa15NVbKRf8/ooANRLsXD87zD2dVqzlz6Oqjvj470ztk" crossorigin="anonymous">
   
-  <script rel'//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
-  <script rel'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 
   
   
@@ -79,7 +78,7 @@
         <a href="/">Services</a>
       </li>
       <li class="site-nav">
-        <a href="/">Portfolio</a>
+        <a href="/portfolio.html">Portfolio</a>
       </li>
       <li class="site-nav">
         <a href="/">Get Quotes Today</a>
@@ -91,7 +90,7 @@
         <a href="/about-us.html">About Us</a>
       </li>
       <li class="site-nav">
-        <a href="/">Contact Us</a>
+        <a href="/contact-us.html">Contact Us</a>
       </li>
       <li class="site-nav">
         <a href="/"><span class="order-place">Place An Order</span></a>
@@ -130,7 +129,29 @@
 <!-- MOBILE NAV BAR ITEMS -->
   <div id="mobileNavBar">
     <div class="display-table-cell">
-      <a class="menu-toggle mobileNavBar-link"><i class="fa fa-bars" aria-hidden="true"></i>MENU</a>
+      <nav class="mnav">
+      <ul class="active">
+        <li>
+          <a href="/">Services</a>
+        </li>
+        <li>
+          <a href="/portfolio.html">Portfolio</a>
+        </li>
+        <li>
+          <a href="/">Get Quotes Today</a>
+        </li>
+        <li>
+          <a href="/about-us.html">About Us</a>
+        </li>
+        <li>
+          <a href="/contact-us.html">Contact Us</a>
+        </li>
+        <li>
+          <a href="/">Place An Order</a>
+        </li>
+      </ul>
+      <a class="menu-toggle mobileNavBar-link toggle-nav" id="pull"><i class="fa fa-bars" aria-hidden="true"></i><span class="mobile-header">Yosemite Welding</span></a>
+    </nav>
     </div>
   </div>
 
@@ -223,10 +244,10 @@
             <ul class="footer-items">
                 <li><a href="/"><b>Place Metal Orders</b></a></li>
                 <li><a href="/">Services</a></li>
-                <li><a href="/">Portfolios</a></li>
+                <li><a href="/portfolio.html">Portfolios</a></li>
                 <li><a href="/">Quotes</a></li>
-                <li><a href="/">About Us</a></li>
-                <li><a href="/">Contact Us</a></li>
+                <li><a href="/about-us.html">About Us</a></li>
+                <li><a href="/contact-us.html">Contact Us</a></li>
             </ul>
           </div>
         
@@ -253,6 +274,15 @@
     
 
   </footer>
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+    jQuery('.toggle-nav').click(function(e) {
+        // jQuery(this).toggleClass('active');
+        jQuery('.mnav ul').toggleClass('active');
+ 
+        e.preventDefault();
+        });
+    });
   </script>
 
 </body>

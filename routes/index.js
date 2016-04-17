@@ -27,6 +27,11 @@ router.get('/sucess', function(req, res, next) {
   //res.sendFile('/Users/michaelmontero/Desktop/StoreFrontTemplate/views/index.html');
 });
 
+router.get('/portfolio', function(req, res, next) {
+	res.sendFile(path.join(process.env.PWD+'/success.html'));
+  //res.sendFile('/Users/michaelmontero/Desktop/StoreFrontTemplate/views/index.html');
+});
+
 // Set up the sender......
 
 
@@ -58,7 +63,7 @@ router.post('/send', function(req, res, next){
         res.json({error: 'Please contact us here!'});
     } else{
         console.log('Message sent: ' + info.response);
-        res.redirect('/success.html');
+        res.redirect('/success');
     	};
 	});
 
