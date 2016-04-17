@@ -8,8 +8,12 @@ var sass    = require('node-sass');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var busboy = require('connect-busboy');
 
 var app = express();
+
+// upload env
+app.use(busboy() );
 
 // Heroku env
 process.env.PWD = process.cwd()
