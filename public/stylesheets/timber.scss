@@ -4599,9 +4599,13 @@ table td {
   .header-wrapper{
   display: none;
   }
-  nav ul.active{
+  .mnav ul.active{
   display:none;
   }
+  .mnav ul:after{
+  
+  }
+
   .main-image-div{
     padding-top: 23px;
   }
