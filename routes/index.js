@@ -22,7 +22,7 @@ router.get('/contact-us', function(req, res, next) {
 	res.sendFile(path.join(process.env.PWD+'/contact-us.html'));
   //res.sendFile('/Users/michaelmontero/Desktop/StoreFrontTemplate/views/index.html');
 });
-router.get('/contact-us', function(req, res, next) {
+router.get('/sucess', function(req, res, next) {
 	res.sendFile(path.join(process.env.PWD+'/success.html'));
   //res.sendFile('/Users/michaelmontero/Desktop/StoreFrontTemplate/views/index.html');
 });
@@ -40,8 +40,8 @@ router.post('/send', function(req, res, next){
 	var transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-            user: 'yosemite.welding.contacts@gmail.com',//process.env.EMAIL, // Your email id
-            pass: 'Leigh111'//process.env.PASSWORD // Your password
+            user: process.env.EMAIL, // Your email id
+            pass: process.env.PASSWORD // Your password
         }
     });
 

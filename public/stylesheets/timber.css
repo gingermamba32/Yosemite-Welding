@@ -4262,7 +4262,7 @@ table td {
 @media screen and (max-width: 769px) {
   .header-wrapper {
     display: none; }
-  nav ul.active {
+  .mnav ul.active {
     display: none; }
   .main-image-div {
     padding-top: 23px; }
