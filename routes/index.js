@@ -34,6 +34,10 @@ var imageSchema = new mongoose.Schema({
 		type: String,
 		default: ''
 	}	,
+	link: {
+		type: String,
+		default: ''
+	}	,
 	imgurl: {
 		type: String,
 		default: ''
@@ -148,8 +152,10 @@ router.post('/upload', function(req, res, next) {
         console.log("Uploading: " + filename);
         var newurl = '/uploads/' + filename;
         console.log(req.body.title + 'It works');
+        console.log(req.body.link + 'It works');
         var newimage = new Images({
         	title: req.body.title,
+        	link: req.body.link,
         	imgurl: newurl
         })
 

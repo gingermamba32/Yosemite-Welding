@@ -138,12 +138,24 @@
 <div class="grid">
 
   <div class="grid-tem">
-    <h1 class="contact-header">Contact Us</h1>
+    <h1 class="contact-header">Upload Portfolio Pieces</h1>
+  </div>
+</div>
+
+<div class="grid">
+
+  <div class="grid-tem">
+    <p class="instruction" style="text-align:center;"><b>Here is what you need:</b></p>
+    <ul style="text-align:center;">
+      <li>An image with the following dimensions:</li>
+      <li>Where you want to user to go when they click on the piece. Note: this needs to be the entire url. EX: http://www.website.com</li>
+      <li>A caption for the image that will display over the image when the user hovers</li>
+    </ul>
   </div>
 </div>
 
 
-    <form class="form-style-9" action="/send" method="POST">
+    <!-- <form class="form-style-9" action="/send" method="POST">
       <ul>
       <li>
           <input type="text" name="name" class="field-style field-split align-left" placeholder="Name"/>
@@ -163,15 +175,25 @@
       <input type="submit" value="Send" />
       </li>
       </ul>
-    </form>
+    </form> -->
 
 
 
-    <form action="/upload" method="POST" enctype="multipart/form-data">
-      Select an image to upload:
-      <input type="text" name="title">
-      <input type="file" name="image"> 
-      <input type="submit" value="Upload Image">
+    <form class="form-style-9" action="/upload" method="POST" enctype="multipart/form-data">
+      <ul>
+      <li>
+        <input class="field-style field-full align-none" type="text" name="title" placeholder="Portfolio Caption">
+      </li>
+      <li>
+        <input class="field-style field-full align-none" type="text" name="link" placeholder="Where will this piece direct the user?">
+      </li>
+      <li>
+        <input type="file" name="image">
+      </li>
+        <li> 
+          <input type="submit" value="Upload">
+        </li>
+      </ul>
     </form>
 
   
