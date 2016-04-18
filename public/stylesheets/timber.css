@@ -4258,10 +4258,6 @@ table td {
 .no-padding {
   position: relative; }
 
-.port-img {
-  height: 100%;
-  max-width: none !important; }
-
 .adjust-grid {
   width: 5.933% !important; }
 
@@ -4310,6 +4306,26 @@ table td {
   background-color: #ff6600;
   width: 35px;
   padding: 5px 10px; }
+
+.list-container {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  overflow: hidden;
+  padding-bottom: 20px; }
+
+.list-container ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  text-align: center; }
+
+.list-container ul li {
+  width: 330px;
+  display: inline-block; }
+
+.img-width {
+  width: 95%; }
 
 @media screen and (max-width: 700px) {
   .form-style-9 {

@@ -1,0 +1,135 @@
+doctype html
+html.no-touch.no-js
+
+  head
+    //- // Basic page needs ==================================================
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    link(rel='shortcut icon', href='images/favicon.png', type='image/png')
+    //- // Title and description ==================================================
+    title
+      | Yosemite Welding
+    meta(name='description', content='Yosemite Welding Splash Page')
+    //- // Helpers ==================================================
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    //- // CSS ==================================================
+    link(rel='stylesheet', href='stylesheets/timber.css')
+    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css', rel='stylesheet', integrity='sha384-I6JCnqxMbC2DuiHjsoCiLa15NVbKRf8/ooANRLsXD87zD2dVqzlz6Oqjvj470ztk', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js')
+  body
+    header.site-header(role='banner')
+      .wrapper.header-wrapper
+        .grid--full
+          .grid-item.large--one-half
+            a.header-link(href='/') Call us! (209) 874-6140
+          .grid-item.large--one-half.header-align-right
+            a.header-link.header-align-right(href='/contact') Ask us a question >
+        
+    .mountain-div
+      img.mountain-image(src='images/logo-mountain.png', alt='logo', align='center')
+    
+    nav.nav-bar(role='navigation')
+      .wrapper(style='padding-left: 0px !important;')
+        ul.site-nav
+          li.site-nav
+            a(href='/') Services
+          li.site-nav
+            a(href='/portfolio.html') Portfolio
+          li.site-nav
+            a(href='/') Get Quotes Today
+          li.site-nav
+            a.middle-nav-link(href='/') YOSEMITE WELDING
+          li.site-nav
+            a(href='/about-us.html') About Us
+          li.site-nav
+            a(href='/contact-us.html') Contact Us
+          li.site-nav
+            a(href='/')
+              span.order-place Place An Order
+    #mobileNavBar
+      .display-table-cell
+        nav.mnav
+          ul.active
+            li
+              a(href='/') Services
+            li
+              a(href='/portfolio.html') Portfolio
+            li
+              a(href='/') Get Quotes Today
+            li
+              a(href='/about-us.html') About Us
+            li
+              a(href='/contact-us.html') Contact Us
+            li
+              a(href='/') Place An Order
+          a#pull.menu-toggle.mobileNavBar-link.toggle-nav
+            i.fa.fa-bars(aria-hidden='true')
+            span.mobile-header Yosemite Welding
+    //- // MAIN IMAGE
+    //- // NEED TO MAKE FULL SCREEN
+    .main-image-div
+      img.main-image(src='images/portfolio-header.jpg', alt='Welding')
+    //- // Portfolio Us Text
+    .grid
+      .grid-tem
+        h1.contact-header Portfolio
+
+
+
+    .list-container
+     ul
+      if (nums.length)
+       each post, i in nums
+        li
+         a(href="")
+          img.img-width(src="#{post.imgurl}")
+
+    footer.site-footer.small--text-center.footer-padding(role='contentinfo')
+      .wrapper
+        .grid
+          //- // FOOTER LINK GRID
+          .grid-item.medium--one-half.large--seven-twelfths.align-center(style='padding-left: 0px;')
+            ul.footer-items
+              li
+                a(href='/')
+                  b Place Metal Orders
+              li
+                a(href='/') Services
+              li
+                a(href='/portfolio.html') Portfolios
+              li
+                a(href='/') Quotes
+              li
+                a(href='/about-us.html') About Us
+              li
+                a(href='/contact-us.html') Contact Us
+          //- // NO INLNE CSS
+          .grid-item.medium--one-half.large--five-twelfths.align-center(style='padding-left: 0px;')
+            ul.social-footer-links
+              li
+                a(href='http://www.facebook.com')
+                  img(src='images/facebook-logo.png', alt='social', width='50%')
+              li
+                a(href='http://www.instagram.com')
+                  img(src='images/instagram-icon.png', alt='social', width='50%')
+              li
+                a(href='http://yelp.com')
+                  img(src='images/yelp-icon.png', alt='social', width='50%')
+              li
+                a(href='http://yellowpages.com')
+                  img(src='images/yp-icon.png', alt='social', width='50%')
+    script(type='text/javascript').
+      jQuery(document).ready(function() {
+      jQuery('.toggle-nav').click(function(e) {
+      // jQuery(this).toggleClass('active');
+      jQuery('.mnav ul').toggleClass('active');
+      e.preventDefault();
+      });
+
+      $(function() {
+      $('.imgwidth').each(function(n) {
+      n += 1;
+      $(this).wrap('<figure class="tint t'+ n + '"></figure>');
+      });
+      });
+      });

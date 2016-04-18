@@ -28,6 +28,26 @@ mongoose.connect( uristring, function (err,res){
 })
 
 // Mongoose schema
+// db schema for the locations collection
+var imageSchema = new mongoose.Schema({ 
+	title: {
+		type: String,
+		default: ''
+	}	,
+	imgurl: {
+		type: String,
+		default: ''
+	}	
+});
+
+var Images = mongoose.model('photos', imageSchema);
+
+// Images.find({}, function(err, docs){
+
+// 		console.log(docs + 'XXXXXXXXX');
+		
+// 		// res.sendFile(path.join(process.env.PWD+'/upload.html'));
+// 	})
 
 
 // heroku statuc file server
@@ -35,32 +55,39 @@ process.env.PWD = process.cwd()
 
 /* GET home page. */
 var html_dir = '../views/';
+
 router.get('/', function(req, res, next) {
 	res.sendFile(path.join(process.env.PWD+'/index.html'));
   //res.sendFile('/Users/michaelmontero/Desktop/StoreFrontTemplate/views/index.html');
 });
 
-router.get('/about-us', function(req, res, next) {
-	res.sendFile(path.join(process.env.PWD+'/about-us.html'));
-  //res.sendFile('/Users/michaelmontero/Desktop/StoreFrontTemplate/views/index.html');
-});
-router.get('/contact-us', function(req, res, next) {
-	res.sendFile(path.join(process.env.PWD+'/contact-us.html'));
-  //res.sendFile('/Users/michaelmontero/Desktop/StoreFrontTemplate/views/index.html');
-});
-router.get('/sucess', function(req, res, next) {
-	res.sendFile(path.join(process.env.PWD+'/success.html'));
-  //res.sendFile('/Users/michaelmontero/Desktop/StoreFrontTemplate/views/index.html');
-});
+// router.get('/about-us', function(req, res, next) {
+// 	res.sendFile(path.join(process.env.PWD+'/about-us.html'));
+//   //res.sendFile('/Users/michaelmontero/Desktop/StoreFrontTemplate/views/index.html');
+// });
+// router.get('/contact-us', function(req, res, next) {
+// 	res.sendFile(path.join(process.env.PWD+'/contact-us.html'));
+//   //res.sendFile('/Users/michaelmontero/Desktop/StoreFrontTemplate/views/index.html');
+// });
+// router.get('/sucess', function(req, res, next) {
+// 	res.sendFile(path.join(process.env.PWD+'/success.html'));
+//   //res.sendFile('/Users/michaelmontero/Desktop/StoreFrontTemplate/views/index.html');
+// });
+
+// router.get('/portfolio', function(req, res, next) {
+// 	res.sendFile(path.join(process.env.PWD+'/success.html'));
+//   //res.sendFile('/Users/michaelmontero/Desktop/StoreFrontTemplate/views/index.html');
+// });
 
 router.get('/portfolio', function(req, res, next) {
-	res.sendFile(path.join(process.env.PWD+'/success.html'));
-  //res.sendFile('/Users/michaelmontero/Desktop/StoreFrontTemplate/views/index.html');
-});
+	Images.find({}, function(err, docs){
 
-router.get('/upload', function(req, res, next) {
-	res.sendFile(path.join(process.env.PWD+'/upload.html'));
-  //res.sendFile('/Users/michaelmontero/Desktop/StoreFrontTemplate/views/index.html');
+		console.log(docs + 'XXXXXXXXX');
+
+		res.render('portfolio', {'nums': docs});
+	})
+
+	
 });
 
 // Set up the sender......
@@ -119,14 +146,23 @@ router.post('/upload', function(req, res, next) {
 
         // save file url
         console.log("Uploading: " + filename);
+        var newurl = '/uploads/' + filename;
         console.log(req.body.title + 'It works');
+        var newimage = new Images({
+        	title: req.body.title,
+        	imgurl: newurl
+        })
 
 
         fstream.on('close', function () {
+        	newimage.save(function(err, callback){
+
             res.redirect('/success.html');
+        	});
         });
     });
 
 })
+
 
 module.exports = router;
