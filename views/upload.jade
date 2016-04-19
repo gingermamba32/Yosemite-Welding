@@ -1,0 +1,215 @@
+doctype html
+html.no-touch.no-js
+  head
+    //- // Basic page needs ==================================================
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    link(rel='shortcut icon', href='images/favicon.png', type='image/png')
+    //- // Title and description ==================================================
+    title
+      | Yosemite Welding
+    meta(name='description', content='Yosemite Welding Splash Page')
+    // Helpers ==================================================
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    //- // CSS ==================================================
+    link(rel='stylesheet', href='stylesheets/timber.css')
+    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css', rel='stylesheet', integrity='sha384-I6JCnqxMbC2DuiHjsoCiLa15NVbKRf8/ooANRLsXD87zD2dVqzlz6Oqjvj470ztk', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js')
+    script(src='https://www.google.com/recaptcha/api.js')
+  body
+    header.site-header(role='banner')
+      .wrapper.header-wrapper
+        .grid--full
+          .grid-item.large--one-half
+            a.header-link(href='/') Call us! (209) 874-6140
+          .grid-item.large--one-half.header-align-right
+            a.header-link.header-align-right(href='/contact') Ask us a question >
+    .mountain-div
+      img.mountain-image(src='images/logo-mountain.png', alt='logo', align='center')
+    nav.nav-bar(role='navigation')
+      .wrapper(style='padding-left: 0px !important;')
+        ul.site-nav
+          li.site-nav
+            a(href='/services') Services
+          li.site-nav
+            a(href='/portfolio.html') Portfolio
+          li.site-nav
+            a(href='/about-us.html') About Us
+          li.site-nav
+            a.middle-nav-link(href='/') YOSEMITE WELDING
+          li.site-nav
+            a(href='/contact-us.html') Contact Us
+          li.site-nav
+            a(href='/')
+              span.order-place Place An Order
+
+    #mobileNavBar
+      .display-table-cell
+        nav.mnav
+          ul.active
+            li
+              a(href='/services') Services
+            li
+              a(href='/portfolio.html') Portfolio
+            li
+              a(href='/about-us.html') About Us
+            li
+              a(href='/contact-us.html') Contact Us
+            li
+              a(href='/') Place An Order
+          a#pull.menu-toggle.mobileNavBar-link.toggle-nav
+            i.fa.fa-bars(aria-hidden='true')
+            span.mobile-header Yosemite Welding
+
+    .main-image-div
+      img.main-image(src='images/about-us-header.jpg', alt='Welding')
+    .grid
+      .grid-tem
+        h1.contact-header Upload Portfolio Pieces
+    .grid
+      .grid-tem
+        p.instruction(style='text-align:center;')
+          b Here is what you need:
+        ul(style='text-align:center;')
+          li An image with the following dimensions:
+          li
+            | Where you want to user to go when they click on the piece. Note: this needs to be the entire url. EX: http://www.website.com
+          li A caption for the image that will display over the image when the user hovers
+    form.form-style-9(action='/portfolioupload', method='POST', enctype='multipart/form-data')
+      ul
+        li
+          input.field-style.field-full.align-none(type='text', name='title', placeholder='Portfolio Caption')
+        li
+          input.field-style.field-full.align-none(type='text', name='link', placeholder='Where will this piece direct the user?')
+        li
+          input(type='file', name='image')
+        li
+          input(type='submit', value='Upload')
+    //- // our services grid
+    .grid
+      .grid-tem
+        h1.contact-header Upload Services
+    .grid
+      .grid-tem
+        p.instruction(style='text-align:center;')
+          b Here is what you need:
+        ul(style='text-align:center;')
+          li An image with the following dimensions:
+          li
+            | Where you want to user to go when they click on the piece. Note: this needs to be the entire url. EX: http://www.website.com
+          li A caption for the image that will display over the image when the user hovers
+    form.form-style-9(action='/serviceupload', method='POST', enctype='multipart/form-data')
+      ul
+        li
+          input.field-style.field-full.align-none(type='text', name='title', placeholder='Services Title', required)
+        li
+          textarea.field-style(type='text', name='text', placeholder='Services paragraph', required)
+        li
+          input.field-style.field-full.align-none(type='text', name='link', placeholder='Where will this piece direct the user?')
+        li
+          input(type='file', name='image', required='')
+        li
+          input(type='submit', value='Upload')
+    //- // List the grid items including which type of upload image url and caption to delete and manage
+    .grid
+      .grid-tem
+        h1.contact-header Manage All Upload
+    .grid-tem(style="width: 50%; margin: 0 auto;")
+      p.instruction(style='text-align:center;')
+        b Here are all the items you have uploaded
+      ul(style='text-align:center; background-color: #ddd; border-radius: 5px;')
+       if (nums.length)
+        each post, i in nums
+         br
+         li #[img(src="#{post.imgurl}", style="height: 30%;")]
+         li Title: #[span= post.title]
+         li Link: #[span= post.link]
+         li= post.text
+         li Upload Type: #[span=post.type]
+         li  #[button.btn(href="/deletepost/#{post.id}", onclick="return warningList();") Delete]
+         br
+
+
+    //- // SOCIAL GRID
+    .grid.social-grid
+      .grid-item.medium--one-half.large--one-half.align-center
+        h1.strike-line
+          span.social-header See us in action
+        ul
+          li
+            a(href='http://www.facebook.com')
+              img(src='images/facebook-logo1.png', alt='social')
+          li
+            a(href='http://www.instagram.com')
+              img(src='images/instagram-icon1.png', alt='social')
+        p.social-text
+          | See us in our element and witness the culture we have built to create a great team environment for passionate welders and problem solvers.
+      .grid-item.medium--one-half.large--one-half.align-center
+        h1.strike-line
+          span.social-header Tell us how we are doing
+        ul
+          li
+            a(href='http://yelp.com')
+              img(src='images/yelp-icon.png', alt='social', width='200%')
+          li
+            a(href='http://yellowpages.com')
+              img(src='images/yp-icon.png', alt='social', width='200%')
+        p.social-text
+          | We strive to be better every single day and we cannot do this without you. Help us become better by telling us what you think.
+    //- // END SOCIAL GRID
+    footer.site-footer.small--text-center.footer-padding(role='contentinfo')
+      .wrapper
+        .grid
+          .grid-item.medium--one-half.large--seven-twelfths.align-center(style='padding-left: 0px;')
+            ul.footer-items
+              li
+                a(href='/')
+                  b Place Metal Orders
+              li
+                a(href='/services') Services
+              li
+                a(href='/portfolio.html') Portfolios
+              li
+                a(href='/about-us.html') About Us
+              li
+                a(href='/contact-us.html') Contact Us
+          .grid-item.medium--one-half.large--five-twelfths.align-center(style='padding-left: 0px;')
+            ul.social-footer-links
+              li
+                a(href='http://www.facebook.com')
+                  img(src='images/facebook-logo.png', alt='social', width='50%')
+              li
+                a(href='http://www.instagram.com')
+                  img(src='images/instagram-icon.png', alt='social', width='50%')
+              li
+                a(href='http://yelp.com')
+                  img(src='images/yelp-icon.png', alt='social', width='50%')
+              li
+                a(href='http://yellowpages.com')
+                  img(src='images/yp-icon.png', alt='social', width='50%')
+    script(type='text/javascript').
+      jQuery(document).ready(function() {
+      jQuery('.toggle-nav').click(function(e) {
+      // jQuery(this).toggleClass('active');
+      jQuery('.mnav ul').toggleClass('active');
+      e.preventDefault();
+      });
+      function warningList() {
+          if(confirm("Please confirm you want to delete this UPC. Do NOT prevent future popups!") == true){
+          return true;
+          } 
+        else{
+        return false;
+          }
+        }
+
+
+      });
+      function warningList() {
+          if(confirm("Please confirm you want to delete this UPC. Do NOT prevent future popups!") == true){
+          return true;
+          } 
+        else{
+        return false;
+          }
+        }

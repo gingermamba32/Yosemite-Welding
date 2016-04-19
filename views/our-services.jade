@@ -32,7 +32,7 @@ html.no-touch.no-js
       .wrapper(style='padding-left: 0px !important;')
         ul.site-nav
           li.site-nav
-            a(href='/services') Services
+            a(href='/') Services
           li.site-nav
             a(href='/portfolio.html') Portfolio
           li.site-nav
@@ -49,7 +49,7 @@ html.no-touch.no-js
         nav.mnav
           ul.active
             li
-              a(href='/services') Services
+              a(href='/') Services
             li
               a(href='/portfolio.html') Portfolio
             li
@@ -68,17 +68,17 @@ html.no-touch.no-js
     //- // Portfolio Us Text
     .grid
       .grid-tem
-        h1.contact-header Portfolio
+        h1.contact-header Our Services
 
 
 
-    .list-container
+    .service-container
      ul
       if (nums.length)
        each post, i in nums
-        li
-         a(href="")
-          img.img-width(src="#{post.imgurl}")
+        li #[a(href="#{post.link}")] #[img.service-width(src="#{post.imgurl}")]
+         h1.portfolio-header= post.title
+         p.social-text= post.text         
 
     footer.site-footer.small--text-center.footer-padding(role='contentinfo')
       .wrapper
@@ -112,7 +112,6 @@ html.no-touch.no-js
               li
                 a(href='http://yellowpages.com')
                   img(src='images/yp-icon.png', alt='social', width='50%')
-                    
     script(type='text/javascript').
       jQuery(document).ready(function() {
       jQuery('.toggle-nav').click(function(e) {

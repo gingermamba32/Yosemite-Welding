@@ -4036,6 +4036,9 @@ table td {
   text-align: center;
   font-weight: 500; }
 
+.site-nav li a {
+  text-decoration: none; }
+
 .footer-padding {
   padding: 10px 0px 0px 0px; }
 
@@ -4323,6 +4326,27 @@ table td {
 .list-container ul li {
   width: 330px;
   display: inline-block; }
+
+.service-container {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  overflow: hidden;
+  padding-bottom: 20px; }
+
+.service-container ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  text-align: center; }
+
+.service-container ul li {
+  width: 500px;
+  display: inline-block;
+  padding-bottom: 10px; }
+
+.service-width {
+  width: 50%; }
 
 .img-width {
   width: 95%; }

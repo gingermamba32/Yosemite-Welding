@@ -34,6 +34,14 @@ var imageSchema = new mongoose.Schema({
 		type: String,
 		default: ''
 	}	,
+	text: {
+		type: String,
+		default: ''
+	}	,
+	type: {
+		type: String,
+		default: ''
+	}	,
 	link: {
 		type: String,
 		default: ''
@@ -45,13 +53,6 @@ var imageSchema = new mongoose.Schema({
 });
 
 var Images = mongoose.model('photos', imageSchema);
-
-// Images.find({}, function(err, docs){
-
-// 		console.log(docs + 'XXXXXXXXX');
-		
-// 		// res.sendFile(path.join(process.env.PWD+'/upload.html'));
-// 	})
 
 
 // heroku statuc file server
@@ -65,26 +66,8 @@ router.get('/', function(req, res, next) {
   //res.sendFile('/Users/michaelmontero/Desktop/StoreFrontTemplate/views/index.html');
 });
 
-// router.get('/about-us', function(req, res, next) {
-// 	res.sendFile(path.join(process.env.PWD+'/about-us.html'));
-//   //res.sendFile('/Users/michaelmontero/Desktop/StoreFrontTemplate/views/index.html');
-// });
-// router.get('/contact-us', function(req, res, next) {
-// 	res.sendFile(path.join(process.env.PWD+'/contact-us.html'));
-//   //res.sendFile('/Users/michaelmontero/Desktop/StoreFrontTemplate/views/index.html');
-// });
-// router.get('/sucess', function(req, res, next) {
-// 	res.sendFile(path.join(process.env.PWD+'/success.html'));
-//   //res.sendFile('/Users/michaelmontero/Desktop/StoreFrontTemplate/views/index.html');
-// });
-
-// router.get('/portfolio', function(req, res, next) {
-// 	res.sendFile(path.join(process.env.PWD+'/success.html'));
-//   //res.sendFile('/Users/michaelmontero/Desktop/StoreFrontTemplate/views/index.html');
-// });
-
 router.get('/portfolio', function(req, res, next) {
-	Images.find({}, function(err, docs){
+	Images.find({type: 'portfolio'}, function(err, docs){
 
 		console.log(docs + 'XXXXXXXXX');
 
@@ -93,6 +76,29 @@ router.get('/portfolio', function(req, res, next) {
 
 	
 });
+
+router.get('/upload', function(req, res, next) {
+	Images.find().sort({type: 1}).exec(function(err, docs){
+
+		console.log(docs + 'XXXXXXXXX');
+
+		res.render('upload', {'nums': docs});
+	});
+
+	
+});
+
+router.get('/services', function(req, res, next) {
+	Images.find({type: 'services'}, function(err, docs){
+
+		console.log(docs + 'XXXXXXXXX');
+
+		res.render('our-services', {'nums': docs});
+	})
+
+	
+});
+
 
 // Set up the sender......
 
@@ -131,7 +137,7 @@ router.post('/send', function(req, res, next){
 
 })
 
-router.post('/upload', function(req, res, next) {
+router.post('/portfolioupload', function(req, res, next) {
 	console.log(req.body);
 	console.log(req.body.title + 'sfdsfdsf');
 	var fstream;
@@ -155,6 +161,7 @@ router.post('/upload', function(req, res, next) {
         console.log(req.body.link + 'It works');
         var newimage = new Images({
         	title: req.body.title,
+        	type: 'portfolio',
         	link: req.body.link,
         	imgurl: newurl
         })
@@ -163,12 +170,60 @@ router.post('/upload', function(req, res, next) {
         fstream.on('close', function () {
         	newimage.save(function(err, callback){
 
-            res.redirect('/success.html');
+            res.redirect('/portfolio');
         	});
         });
     });
 
 })
+
+router.post('/serviceupload', function(req, res, next) {
+	console.log(req.body);
+	console.log(req.body.title + 'sfdsfdsf');
+	var fstream;
+    req.pipe(req.busboy);
+
+    req.busboy.on('field', function(fieldname, val) {
+     console.log(fieldname, val);
+     req.body[fieldname] = val;
+   });
+
+    req.busboy.on('file', function (fieldname, file, filename) {
+        console.log("Uploading: " + filename); 
+        //console.log(req.body);
+        fstream = fs.createWriteStream('./public/uploads/' + filename);
+        file.pipe(fstream);
+
+        // save file url
+        console.log("Uploading: " + filename);
+        var newurl = '/uploads/' + filename;
+        console.log(req.body.title + 'It works');
+        console.log(req.body.link + 'It works');
+        var newimage = new Images({
+        	title: req.body.title,
+        	text: req.body.text,
+        	type: 'services',
+        	link: req.body.link,
+        	imgurl: newurl
+        })
+
+
+        fstream.on('close', function () {
+        	newimage.save(function(err, callback){
+
+            res.redirect('/services');
+        	});
+        });
+    });
+
+});
+
+router.get('/deletepost/:id', function(req, res){
+	Images.remove({ _id: req.params.id }, function(err, docs){
+		res.redirect('/upload');
+	});
+});
+
 
 
 module.exports = router;
