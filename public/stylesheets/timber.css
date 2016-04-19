@@ -4345,35 +4345,36 @@ table td {
   display: inline-block;
   padding-bottom: 10px; }
 
-.service-width {
-  width: 50%; }
-
 .img-width {
   width: 95%; }
 
-.text-popup {
-  position: relative; }
-
-.text-popup h1, .text-popup .h1, .text-popup #shopify-product-reviews .spr-header-title, #shopify-product-reviews .text-popup .spr-header-title {
+.img-with-text {
+  position: relative;
+  overflow: hidden;
+  width: 50%;
   text-align: center;
+  margin: 0 auto; }
+
+img-with-text > div {
   position: absolute;
-  top: 50%;
-  width: 100%;
-  transform: translate(0%, -50%);
-  -webkit-transform: translate(0%, -50%);
-  -ms-transform: translate(0%, -50%);
-  color: #FFFFFF;
-  font-family: Arial;
-  text-transform: uppercase;
-  display: none; }
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  color: transparent;
+  transition: 1s; }
 
-.text-popup:hover img {
-  filter: brightness(0.3);
-  -webkit-filter: brightness(0.3);
-  -ms-filter: brightness(0.3); }
+.img-with-text > div:hover {
+  background-color: #204a80;
+  color: white;
+  height: 95%; }
 
-.text-popup :hover h1, .text-popup :hover .h1, .text-popup :hover #shopify-product-reviews .spr-header-title, #shopify-product-reviews .text-popup :hover .spr-header-title {
-  display: block; }
+.img-with-text img:hover {
+  opacity: .5; }
+
+.line-height {
+  line-height: 0 !important; }
 
 @media screen and (max-width: 700px) {
   .form-style-9 {

@@ -78,9 +78,10 @@ html.no-touch.no-js
        each post, i in nums
         li 
          a(href="#{post.link}")
-          div.img-with-text
-           img.service-hover.service-width(src="#{post.imgurl}")
-           h1.portfolio-header= post.title
+          .img-with-text
+           div.line-height
+            img.service-hover.service-width(src="#{post.imgurl}")
+         h2.portfolio-header= post.title
          p.social-text= post.text         
 
     footer.site-footer.small--text-center.footer-padding(role='contentinfo')
