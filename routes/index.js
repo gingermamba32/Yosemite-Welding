@@ -120,7 +120,7 @@ router.post('/send', function(req, res, next){
 
 	var mailOptions = {
     from: req.body.email, // sender address
-    to: 'michaelm@beautyindustrygroup.com', // list of receivers
+    to: 'mary@yosemitewelding.com', // list of receivers
     subject: 'Re: Contact Us -> ' + req.body.name + '/'+ req.body.email + ':' + req.body.subject, // Subject line
     text: req.body.message
 	};

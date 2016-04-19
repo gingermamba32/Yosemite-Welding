@@ -4351,6 +4351,30 @@ table td {
 .img-width {
   width: 95%; }
 
+.text-popup {
+  position: relative; }
+
+.text-popup h1, .text-popup .h1, .text-popup #shopify-product-reviews .spr-header-title, #shopify-product-reviews .text-popup .spr-header-title {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translate(0%, -50%);
+  -webkit-transform: translate(0%, -50%);
+  -ms-transform: translate(0%, -50%);
+  color: #FFFFFF;
+  font-family: Arial;
+  text-transform: uppercase;
+  display: none; }
+
+.text-popup:hover img {
+  filter: brightness(0.3);
+  -webkit-filter: brightness(0.3);
+  -ms-filter: brightness(0.3); }
+
+.text-popup :hover h1, .text-popup :hover .h1, .text-popup :hover #shopify-product-reviews .spr-header-title, #shopify-product-reviews .text-popup :hover .spr-header-title {
+  display: block; }
+
 @media screen and (max-width: 700px) {
   .form-style-9 {
     width: 100%; } }

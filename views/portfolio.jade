@@ -26,7 +26,7 @@ html.no-touch.no-js
             a.header-link.header-align-right(href='/contact') Ask us a question >
         
     .mountain-div
-      img.mountain-image(src='images/logo-mountain.png', alt='logo', align='center')
+      img.mountain-image(src='images/mountain-div.jpg', alt='logo', align='center')
     
     nav.nav-bar(role='navigation')
       .wrapper(style='padding-left: 0px !important;')
@@ -34,7 +34,7 @@ html.no-touch.no-js
           li.site-nav
             a(href='/services') Services
           li.site-nav
-            a(href='/portfolio.html') Portfolio
+            a(href='/portfolio') Portfolio
           li.site-nav
             a(href='/about-us.html') About Us
           li.site-nav
@@ -51,7 +51,7 @@ html.no-touch.no-js
             li
               a(href='/services') Services
             li
-              a(href='/portfolio.html') Portfolio
+              a(href='/portfolio') Portfolio
             li
               a(href='/about-us.html') About Us
             li
@@ -77,7 +77,7 @@ html.no-touch.no-js
       if (nums.length)
        each post, i in nums
         li
-         a(href="")
+         a(href="#{post.link}")
           img.img-width(src="#{post.imgurl}")
 
     footer.site-footer.small--text-center.footer-padding(role='contentinfo')
@@ -90,9 +90,9 @@ html.no-touch.no-js
                 a(href='/')
                   b Place Metal Orders
               li
-                a(href='/') Services
+                a(href='/services') Services
               li
-                a(href='/portfolio.html') Portfolios
+                a(href='/portfolio') Portfolios
               li
                 a(href='/about-us.html') About Us
               li
