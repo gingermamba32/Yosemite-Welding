@@ -64,11 +64,11 @@ html.no-touch.no-js
     //- // MAIN IMAGE
     //- // NEED TO MAKE FULL SCREEN
     .main-image-div
-      img.main-image(src='images/portfolio-header.jpg', alt='Welding')
+      img.main-image(src='images/services-header.jpg', alt='Welding')
     //- // Portfolio Us Text
     .grid
       .grid-tem
-        h1.contact-header(style="padding-bottom: 20px;") Our Services
+        h1.contact-header(style="padding-bottom: 40px;") Our Services
 
 
 
@@ -76,12 +76,14 @@ html.no-touch.no-js
      ul
       if (nums.length)
        each post, i in nums
-        li
+        li(class="resp-li")
          div.width-service-image 
-           a(href="#{post.link}")
-            .img-with-text
-             div.line-height
-              img.service-hover.service-width(src="#{post.imgurl}")
+          a(href="#{post.link}")
+           .media.line-height
+              img(src="#{post.imgurl}")
+              .media__body(style="width: 91%; margin: 0 auto;")
+               p.inner-text(style="line-height: 1.6; padding-top: 20px; font-size: 18px;")= post.title
+            
         li
          div.service-div 
           h2.service-header(style="padding-top: 10px;")= post.title

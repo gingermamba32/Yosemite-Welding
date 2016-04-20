@@ -76,12 +76,12 @@ html.no-touch.no-js
      ul
       if (nums.length)
        each post, i in nums
-        li
+        li(style="padding-bottom: 20px;")
           a(href="#{post.link}")
            .media.line-height
               img(src="#{post.imgurl}")
               .media__body(style="width: 91%; margin: 0 auto;")
-               p.inner-text(style="line-height: 1.6;")= post.title
+               p.inner-text(style="line-height: 1.6; padding-top: 20px; font-size: 18px;")= post.title
                p.order-place(style="line-height: 1.6;") Place an Order
 
     footer.site-footer.small--text-center.footer-padding(role='contentinfo')

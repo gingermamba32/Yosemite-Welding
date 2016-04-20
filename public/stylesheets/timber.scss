@@ -4901,6 +4901,12 @@ div.test:hover span.hovering-image-content{
   }
 }
 
+@media all and (min-width: 900px) and (max-device-width: 1250px)  {
+  li.resp-li: {
+  width: 150px !important;
+  }
+}
+
 @media screen and (max-width:500px) {
   .social-media-text{
   padding-bottom: 20px;
