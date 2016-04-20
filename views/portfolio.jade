@@ -42,7 +42,7 @@ html.no-touch.no-js
           li.site-nav
             a(href='/contact-us.html') Contact Us
           li.site-nav
-            a(href='/')
+            a(href='http://www.yosemitesteel.com')
               span.order-place Place An Order
     #mobileNavBar
       .display-table-cell
@@ -57,7 +57,7 @@ html.no-touch.no-js
             li
               a(href='/contact-us.html') Contact Us
             li
-              a(href='/') Place An Order
+              a(href='http://www.yosemitesteel.com') Place An Order
           a#pull.menu-toggle.mobileNavBar-link.toggle-nav
             i.fa.fa-bars(aria-hidden='true')
             span.mobile-header Yosemite Welding
@@ -77,8 +77,12 @@ html.no-touch.no-js
       if (nums.length)
        each post, i in nums
         li
-         a(href="#{post.link}")
-          img.img-width(src="#{post.imgurl}")
+          a(href="#{post.link}")
+           .media.line-height
+              img(src="#{post.imgurl}")
+              .media__body(style="width: 91%; margin: 0 auto;")
+               p.inner-text(style="line-height: 1.6;")= post.title
+               p.order-place(style="line-height: 1.6;") Place an Order
 
     footer.site-footer.small--text-center.footer-padding(role='contentinfo')
       .wrapper
@@ -87,7 +91,7 @@ html.no-touch.no-js
           .grid-item.medium--one-half.large--seven-twelfths.align-center(style='padding-left: 0px;')
             ul.footer-items
               li
-                a(href='/')
+                a(href='http://www.yosemitesteel.com')
                   b Place Metal Orders
               li
                 a(href='/services') Services

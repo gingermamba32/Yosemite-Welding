@@ -4102,8 +4102,9 @@ table td {
   color: #666;
   font-weight: 300;
   font-size: 15px;
-  width: 75%;
-  margin: auto; }
+  width: 90%;
+  margin: auto;
+  line-height: 20px; }
 
 .header-link {
   color: #fff;
@@ -4135,7 +4136,8 @@ table td {
   color: #000;
   font-size: 18px;
   font-weight: 500;
-  margin-bottom: 0px; }
+  margin-bottom: 0px;
+  padding-bottom: 5px; }
 
 .portfolio-grid {
   padding: 15px 50px 40px;
@@ -4319,7 +4321,7 @@ table td {
 
 .list-container ul {
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
   list-style-type: none;
   text-align: center; }
 
@@ -4341,40 +4343,163 @@ table td {
   text-align: center; }
 
 .service-container ul li {
-  width: 500px;
+  width: 250px;
   display: inline-block;
   padding-bottom: 10px; }
 
-.img-width {
-  width: 95%; }
+.width-service-image {
+  width: 70%; }
 
-.img-with-text {
-  position: relative;
-  overflow: hidden;
-  width: 50%;
-  text-align: center;
-  margin: 0 auto; }
+.service-width {
+  width: 100%; }
 
-img-with-text > div {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: transparent;
-  color: transparent;
-  transition: 1s; }
+.service-text {
+  text-align: left;
+  font-weight: 300;
+  color: #666;
+  font-size: 16px;
+  padding-right: 20px;
+  line-height: 19px; }
 
-.img-with-text > div:hover {
-  background-color: #204a80;
-  color: white;
-  height: 95%; }
+.service-header {
+  color: #666;
+  font-weight: 400;
+  padding-bottom: 0px;
+  padding-top: 30%;
+  padding-right: 10px;
+  text-align: left;
+  font-size: 20px;
+  line-height: 21px; }
 
-.img-with-text img:hover {
-  opacity: .5; }
+.service-div {
+  margin-left: -18%; }
+
+.portfolio-piece-width {
+  width: 100%; }
 
 .line-height {
   line-height: 0 !important; }
+
+.social-media-text {
+  text-align: center;
+  color: #666;
+  font-weight: 300;
+  font-size: 15px;
+  width: 75%;
+  margin: auto;
+  line-height: 20px; }
+
+.about-us-hover:hover {
+  opacity: 0.5; }
+
+.portfolio-images-div {
+  width: 95%; }
+
+span.hovering-image-content {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  cursor: pointer;
+  display: table;
+  height: 150px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 150px; }
+
+span.hovering-image-content span {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%; }
+
+span.hovering-image-content {
+  background: #204a80;
+  color: white;
+  cursor: pointer;
+  display: table;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  opacity: 0.5;
+  -webkit-transition: opacity 500ms;
+  -moz-transition: opacity 500ms;
+  -o-transition: opacity 500ms;
+  transition: opacity 500ms; }
+
+div.test:hover span.hovering-image-content {
+  opacity: 1; }
+
+.media {
+  position: relative;
+  vertical-align: top; }
+
+.media__image {
+  display: block; }
+
+.media__body {
+  background: rgba(32, 74, 128, 0.7);
+  bottom: 0;
+  color: white;
+  font-size: 1em;
+  left: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 3.75em 3em;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  right: 0;
+  -webkit-transition: 0.6s;
+  transition: 0.6s; }
+
+.media__body:hover {
+  opacity: 1; }
+
+.media__body:after,
+.media__body:before {
+  content: '';
+  left: 1em;
+  opacity: 0;
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+  -webkit-transition: 0.6s 0.2s;
+  transition: 0.6s 0.2s; }
+
+.media__body:before {
+  border-bottom: none;
+  border-top: none;
+  left: 2em;
+  right: 2em; }
+
+.media__body:after {
+  border-left: none;
+  border-right: none;
+  bottom: 2em;
+  top: 2em; }
+
+.media__body:hover:after,
+.media__body:hover:before {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1; }
+
+.inner-text {
+  padding-top: 40px;
+  font-size: 16px; }
+
+.media__body h2, .media__body .h2 {
+  margin-top: 0; }
+
+.media__body p {
+  margin-bottom: 1.5em; }
 
 @media screen and (max-width: 700px) {
   .form-style-9 {
@@ -4394,5 +4519,7 @@ img-with-text > div {
     padding-right: 55px; } }
 
 @media screen and (max-width: 500px) {
+  .social-media-text {
+    padding-bottom: 20px; }
   .social-text {
     padding-bottom: 20px; } }
