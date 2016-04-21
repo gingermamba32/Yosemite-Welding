@@ -76,15 +76,15 @@ html.no-touch.no-js
      ul
       if (nums.length)
        each post, i in nums
-        li(class="resp-li")
+        li.resp-li
          div.width-service-image 
           a(href="#{post.link}")
            .media.line-height
-              img(src="#{post.imgurl}")
+              img.serv-img(src="#{post.imgurl}")
               .media__body(style="width: 100%; margin: 0 auto;")
                p.inner-text(style="line-height: 1.6; padding-top: 20px; font-size: 18px;")= post.title
             
-        li
+        li.resp-li
          div.service-div 
           h2.service-header(style="padding-top: 10px;")= post.title
           p.service-text= post.text         

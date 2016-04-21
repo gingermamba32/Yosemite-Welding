@@ -3976,6 +3976,9 @@ img.mfp-img {
   color: #000;
   text-decoration: none; }
 
+.site-nav a:hover {
+  color: #23527c !important; }
+
 .site-header {
   padding: 0px; }
 
@@ -4008,6 +4011,9 @@ table td {
   color: #fff;
   background-color: #ff6600;
   padding: 5px 10px; }
+
+a .order-place-hover:hover {
+  background-color: #e67300; }
 
 .mountain-image {
   padding-top: 5px; }
@@ -4504,9 +4510,43 @@ div.test:hover span.hovering-image-content {
 .social-hover:hover {
   opacity: 0.7; }
 
-@media all and (min-width: 900px) and (max-device-width: 1250px) {
-  li.resp-li {
-    width: 150px !important; } }
+@media screen and (min-width: 1030px) and (max-width: 1250px) {
+  .serv-img {
+    width: 100%; }
+  .resp-li {
+    width: 200px !important; }
+  .inner-text {
+    padding-top: 5px !important;
+    font-size: 13px !important; } }
+
+@media screen and (min-width: 938px) and (max-width: 1030px) {
+  .serv-img {
+    width: 100%; }
+  .resp-li {
+    width: 175px !important; }
+  .inner-text {
+    padding-top: 5px !important;
+    font-size: 13px !important; }
+  .service-text {
+    font-size: 70%; }
+  .service-header {
+    font-size: 90%; } }
+
+@media screen and (max-width: 654px) {
+  .resp-li {
+    margin: 0 auto !important;
+    text-align: center !important;
+    display: block; }
+  .serv-img {
+    width: 100%; }
+  .width-service-image {
+    margin: 0 auto !important; }
+  .service-div {
+    margin: 0 auto !important; }
+  .service-text {
+    padding-right: 0px !important; }
+  .service-header {
+    text-align: center; } }
 
 @media screen and (max-width: 500px) {
   .social-media-text {
