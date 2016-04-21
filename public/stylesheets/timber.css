@@ -4501,6 +4501,19 @@ div.test:hover span.hovering-image-content {
 .media__body p {
   margin-bottom: 1.5em; }
 
+.social-hover:hover {
+  opacity: 0.7; }
+
+@media all and (min-width: 900px) and (max-device-width: 1250px) {
+  li.resp-li {
+    width: 150px !important; } }
+
+@media screen and (max-width: 500px) {
+  .social-media-text {
+    padding-bottom: 20px; }
+  .social-text {
+    padding-bottom: 20px; } }
+
 @media screen and (max-width: 700px) {
   .form-style-9 {
     width: 100%; } }
@@ -4517,12 +4530,3 @@ div.test:hover span.hovering-image-content {
   .mobile-header {
     float: right;
     padding-right: 55px; } }
-
-@media only screen and (min-width: 938px) and (max-width: 1250px) {
-  resp-li-width: 150px !important; }
-
-@media screen and (max-width: 500px) {
-  .social-media-text {
-    padding-bottom: 20px; }
-  .social-text {
-    padding-bottom: 20px; } }

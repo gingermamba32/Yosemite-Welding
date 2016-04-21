@@ -4874,37 +4874,13 @@ div.test:hover span.hovering-image-content{
 
 .media__body p { margin-bottom: 1.5em; }
 
-@media screen and (max-width:700px) {
-  .form-style-9{
-  width:100%;
-  }
-}
-
-@media screen and (max-width:769px) {
-  .header-wrapper{
-  display: none;
-  }
-  .mnav ul.active{
-  display:none;
-  }
-
-
-  .main-image-div{
-    padding-top: 23px;
-  }
-  .main-image{
-    width:95%;
-  }
-  .mobile-header{
-    float: right;
-    padding-right: 55px;
-  }
+.social-hover:hover {
+  opacity: 0.7;
 }
 
 @media all and (min-width: 900px) and (max-device-width: 1250px)  {
-  li.resp-li: {
-  width: 150px !important;
-  }
+  li.resp-li{ width: 150px !important;}
+  
 }
 
 @media screen and (max-width:500px) {
@@ -4915,3 +4891,35 @@ div.test:hover span.hovering-image-content{
   padding-bottom: 20px;
   }
 }
+
+@media screen and (max-width:700px) {
+  .form-style-9{
+  width:100%;
+  }
+}
+
+@media screen and (max-width:769px) {
+  .header-wrapper{
+  display: none;
+  }
+
+  .mnav ul.active{
+  display:none;
+  }
+
+
+  .main-image-div{
+    padding-top: 23px;
+  }
+
+  .main-image{
+    width:95%;
+  }
+  .mobile-header{
+    float: right;
+    padding-right: 55px;
+  }
+}
+
+
+
