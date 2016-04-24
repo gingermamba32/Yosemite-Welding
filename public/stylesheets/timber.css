@@ -4121,7 +4121,8 @@ a .order-place-hover:hover {
 
 .middle-nav-link {
   font-size: 120%;
-  font-weight: 700; }
+  font-weight: 700;
+  font-family: Copperplate,Copperplate Gothic Light,fantasy; }
 
 .home-portfolio {
   width: 100%; }
