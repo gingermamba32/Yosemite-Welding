@@ -13,6 +13,7 @@
     "express": "~4.11.1",
     "fs": "0.0.2",
     "jade": "~1.9.1",
+    "jquery-colorbox": "^1.6.3",
     "mongoose": "^4.4.12",
     "morgan": "~1.5.1",
     "multer": "^1.1.0",

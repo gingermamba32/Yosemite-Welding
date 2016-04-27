@@ -5,7 +5,7 @@ html.no-touch.no-js
     //- // Basic page needs ==================================================
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-    link(rel='shortcut icon', href='images/favicon.png', type='image/png')
+    link(rel='shortcut icon', href='../images/favicon.png', type='image/png')
     //- // Title and description ==================================================
     title
       | Yosemite Welding
@@ -13,7 +13,7 @@ html.no-touch.no-js
     //- // Helpers ==================================================
     meta(name='viewport', content='width=device-width,initial-scale=1')
     //- // CSS ==================================================
-    link(rel='stylesheet', href='stylesheets/timber.css')
+    link(rel='stylesheet', href='../stylesheets/timber.css')
     link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css', rel='stylesheet', integrity='sha384-I6JCnqxMbC2DuiHjsoCiLa15NVbKRf8/ooANRLsXD87zD2dVqzlz6Oqjvj470ztk', crossorigin='anonymous')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js')
   body
@@ -26,7 +26,7 @@ html.no-touch.no-js
             a.header-link.header-align-right(href='/contact-us.html') Ask us a question >
         
     .mountain-div
-      img.mountain-image(src='images/mountain-div.jpg', alt='logo', align='center')
+      img.mountain-image(src='../images/mountain-div.jpg', alt='logo', align='center')
     
     nav.nav-bar(role='navigation')
       .wrapper(style='padding-left: 0px !important;')
@@ -64,13 +64,38 @@ html.no-touch.no-js
     //- // MAIN IMAGE
     //- // NEED TO MAKE FULL SCREEN
     .main-image-div
-      img.main-image(src='images/portfolio-header.jpg', alt='Welding')
+      img.main-image(src='../images/portfolio-header.jpg', alt='Welding')
     //- // Portfolio Us Text
     .grid
       .grid-tem
-        h1.contact-header ERROR - YOU HAVE NOT SUCCESSFULLY LOGGED IN
+        h1.contact-header Update a Portfolio or Service 
 
 
+      //- Update the doc
+     form.form-style-9(action='/update', method='POST', name="update")
+      ul
+        li
+          input.field-style.field-full.align-none(type='text', name='title', placeholder='Title', value='#{post[0].title}')
+        li
+          textarea.field-style(type='text', name='text', placeholder='Services paragraph if applicable', value='#{post[0].text}')
+        li
+          input.field-style.field-full.align-none(type='text', name='link', placeholder='Where will this piece direct the user?', value='#{post[0].link}')
+        li
+          div(style="margin: 0 auto; text-align: center;")
+           img(src="#{post[0].imgurl}", style="margin: 0 auto; text-align: center;")
+        li
+          div(style="margin: 0 auto; text-align: center;")
+           p= post[0].type
+        li(style="display:none;")
+          input(type='hidden', name='imgurl', value='#{post[0].imgurl}')
+        li(style="display:none;")
+          input(type='hidden', name='id', value='#{post[0]._id}')
+        li(style="display:none;")
+          input(type='hidden', name='type', value='#{post[0].type}')
+        li
+          div(style="margin: 0 auto; text-align: center;")
+           input(type='submit', value='Save')
+   
 
     footer.site-footer.small--text-center.footer-padding(role='contentinfo')
       .wrapper
@@ -94,16 +119,16 @@ html.no-touch.no-js
             ul.social-footer-links
               li
                 a(href='https://www.facebook.com/Yosemite-Welding-Mfg-605355516278661/?view_public_for=605355516278661')
-                  img(class="social-hover", src='images/facebook-logo.png', alt='social', width='50%')
+                  img(class="social-hover", src='../images/facebook-logo.png', alt='social', width='50%')
               li
                 a(href='https://www.instagram.com/yosemitewelding/?ref=badge')
-                  img(class="social-hover", src='images/instagram-icon.png', alt='social', width='50%')
+                  img(class="social-hover", src='../images/instagram-icon.png', alt='social', width='50%')
               li
                 a(href='http://www.yelp.com/biz/yosemite-welding-and-mfg-modesto')
-                  img(class="social-hover", src='images/yelp-icon.png', alt='social', width='50%')
+                  img(class="social-hover", src='../images/yelp-icon.png', alt='social', width='50%')
               li
                 a(href='http://www.yellowpages.com/modesto-ca/mip/yosemite-welding-and-mfg-495491031?lid=1000365436855')
-                  img(class="social-hover", src='images/yp-icon.png', alt='social', width='50%')
+                  img(class="social-hover", src='../images/yp-icon.png', alt='social', width='50%')
                     
     script(type='text/javascript').
       jQuery(document).ready(function() {
@@ -120,7 +145,3 @@ html.no-touch.no-js
       });
       });
       });
-
-
-
-

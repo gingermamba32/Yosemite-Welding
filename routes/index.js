@@ -224,6 +224,30 @@ router.get('/deletepost/:id', function(req, res){
 	});
 });
 
+router.get('/updatepost/:id', function(req,res){
+        Images.find({_id: req.params.id}, function(err, docs){
+        console.log(docs + ' User to edit');
+        res.render('updateportfolio', { post:docs } );
+    });
+});
+
+
+router.post('/update', function(req, res){
+    console.log(req.body.id + ' Hello XXXXXXXXXXXX');
+    Images.findOneAndUpdate(
+        {_id: req.body.id},
+        {$set: {
+                    _id             : req.body.id,
+                    title           : req.body.title,
+                    text            : req.body.text,
+                    type            : req.body.type,
+                    link            : req.body.link,
+                    imgurl          : req.body.imgurl 
+            }}, 
+            {upsert: false} , function(err, docs) {
+                res.redirect('upload'); 
+            });
+});  
 
 
 module.exports = router;
