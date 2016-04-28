@@ -16,12 +16,13 @@ html.no-touch.no-js
     link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css', rel='stylesheet', integrity='sha384-I6JCnqxMbC2DuiHjsoCiLa15NVbKRf8/ooANRLsXD87zD2dVqzlz6Oqjvj470ztk', crossorigin='anonymous')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js')
     script(src='https://www.google.com/recaptcha/api.js')
+    script(src='javascripts/jquery.cookie.js')
   body
     header.site-header(role='banner')
       .wrapper.header-wrapper
         .grid--full
           .grid-item.large--one-half
-            a.header-link(href='/') Call us! (209) 874-6140
+            a.header-link(href='/contact-us.html') Call us! (209) 874-6140
           .grid-item.large--one-half.header-align-right
             a.header-link.header-align-right(href='/contact-us.html') Ask us a question >
     .mountain-div
@@ -61,80 +62,88 @@ html.no-touch.no-js
             i.fa.fa-bars(aria-hidden='true')
             span.mobile-header Yosemite Welding
 
+
     .main-image-div
       img.main-image(src='images/about-us-header.jpg', alt='Welding')
-    .grid
-      .grid-tem
-        h1.contact-header Upload Portfolio Pieces
-    .grid
-      .grid-tem(style="width: 40%; margin: 0 auto; text-align: left;")
-        p.instruction(style='text-align:center;')
-          b Here is what you need:
-        ul(style='list-style-type: circle;')
-          li An image with the following dimensions: 300x275 (wxh)
-          li
-            | Where you want to user to go when they click on the piece. Note: this needs to be the entire url. EX: http://www.website.com. This will be more effective when you can link directly product page or category.
-          li A caption for the image that will display over the image when the user hovers
-    form.form-style-9(action='/portfolioupload', method='POST', enctype='multipart/form-data')
-      ul
-        li
-          input.field-style.field-full.align-none(type='text', name='title', placeholder='Portfolio Caption')
-        li
-          input.field-style.field-full.align-none(type='text', name='link', placeholder='Where will this piece direct the user?')
-        li
-          input(type='file', name='image')
-        li
-          input(type='submit', value='Upload')
-    //- // our services grid
-    .grid
-      .grid-tem
-        h1.contact-header Upload Services
-    .grid
-      .grid-tem(style="width: 40%; margin: 0 auto; text-align: left;")
-        p.instruction(style='text-align:center;')
-          b Here is what you need:
-        ul(style='list-style-type: circle;')
-          li An image with the following dimensions: 200x200 wxh
-          li
-            | Where you want to user to go when they click on the piece. Note: this needs to be the entire url. EX: http://www.website.com
 
-          li A Title for the service that will be placed abover the caption
-          li A caption/paragraph about the service that will display 
-    form.form-style-9(action='/serviceupload', method='POST', enctype='multipart/form-data')
-      ul
-        li
-          input.field-style.field-full.align-none(type='text', name='title', placeholder='Services Title', required)
-        li
-          textarea.field-style(type='text', name='text', placeholder='Services paragraph', required)
-        li
-          input.field-style.field-full.align-none(type='text', name='link', placeholder='Where will this piece direct the user?')
-        li
-          input(type='file', name='image', required='')
-        li
-          input(type='submit', value='Upload')
-    //- // List the grid items including which type of upload image url and caption to delete and manage
-    .grid
-      .grid-tem
-        h1.contact-header Manage All Upload
-    .grid-tem(style="width: 50%; margin: 0 auto;")
-      p.instruction(style='text-align:center;')
-        b Here are all the items you have uploaded
-      ul(style='text-align:center; background-color: #ddd; border-radius: 5px;')
-       if (nums.length)
-        each post, i in nums
-         br
-         li #[img(src="#{post.imgurl}", style="height: 30%;")]
-         li Title: #[span= post.title]
-         li Link: #[span= post.link]
-         li= post.text
-         li Upload Type: #[span=post.type]
-         li
-          a(href="/updatepost/#{post.id}")
-           button.btn Update
-         li
-          a(href="/deletepost/#{post.id}", onclick="return warningList();")
-           button.btn Delete
-         br
+    div#notcookieDiv
+      .grid
+        .grid-tem
+          h1.contact-header You do not have access to upload
+
+    div#cookieDiv
+      .grid
+        .grid-tem
+          h1.contact-header Upload Portfolio Pieces
+      .grid
+        .grid-tem(style="width: 40%; margin: 0 auto; text-align: left;")
+          p.instruction(style='text-align:center;')
+            b Here is what you need:
+          ul(style='list-style-type: circle;')
+            li An image with the following dimensions: 300x275 (wxh)
+            li
+              | Where you want to user to go when they click on the piece. Note: this needs to be the entire url. EX: http://www.website.com. This will be more effective when you can link directly product page or category.
+            li A caption for the image that will display over the image when the user hovers
+      form.form-style-9(action='/portfolioupload', method='POST', enctype='multipart/form-data')
+        ul
+          li
+            input.field-style.field-full.align-none(type='text', name='title', placeholder='Portfolio Caption')
+          li
+            input.field-style.field-full.align-none(type='text', name='link', placeholder='Where will this piece direct the user?')
+          li
+            input(type='file', name='image')
+          li
+            input(type='submit', value='Upload')
+      //- // our services grid
+      .grid
+        .grid-tem
+          h1.contact-header Upload Services
+      .grid
+        .grid-tem(style="width: 40%; margin: 0 auto; text-align: left;")
+          p.instruction(style='text-align:center;')
+            b Here is what you need:
+          ul(style='list-style-type: circle;')
+            li An image with the following dimensions: 200x200 wxh
+            li
+              | Where you want to user to go when they click on the piece. Note: this needs to be the entire url. EX: http://www.website.com
+
+            li A Title for the service that will be placed abover the caption
+            li A caption/paragraph about the service that will display 
+      form.form-style-9(action='/serviceupload', method='POST', enctype='multipart/form-data')
+        ul
+          li
+            input.field-style.field-full.align-none(type='text', name='title', placeholder='Services Title', required)
+          li
+            textarea.field-style(type='text', name='text', placeholder='Services paragraph', required)
+          li
+            input.field-style.field-full.align-none(type='text', name='link', placeholder='Where will this piece direct the user?')
+          li
+            input(type='file', name='image', required='')
+          li
+            input(type='submit', value='Upload')
+      //- // List the grid items including which type of upload image url and caption to delete and manage
+      .grid
+        .grid-tem
+          h1.contact-header Manage All Upload
+      .grid-tem(style="width: 50%; margin: 0 auto;")
+        p.instruction(style='text-align:center;')
+          b Here are all the items you have uploaded
+        ul(style='text-align:center; background-color: #ddd; border-radius: 5px;')
+         if (nums.length)
+          each post, i in nums
+           br
+           li #[img(src="#{post.imgurl}", style="height: 30%;")]
+           li Title: #[span= post.title]
+           li Link: #[span= post.link]
+           li= post.text
+           li Upload Type: #[span=post.type]
+           li
+            a(href="/updatepost/#{post.id}")
+             button.btn Update
+           li
+            a(href="/deletepost/#{post.id}", onclick="return warningList();")
+             button.btn Delete
+           br
 
 
     //- // SOCIAL GRID
@@ -194,14 +203,7 @@ html.no-touch.no-js
               li
                 a(href='http://www.yellowpages.com/modesto-ca/mip/yosemite-welding-and-mfg-495491031?lid=1000365436855')
                   img(class="social-hover", src='images/yp-icon.png', alt='social', width='50%')
-         #boxes
-          #dialog.window
-            | Your Content Goes Here
-            #popupfoot
-              a.close.agree(href='#') I agree
-              |  
-              a.agree(style='color:red;', href='#') I do not agree
-          #mask
+
 
 
     script(type='text/javascript').
@@ -220,45 +222,30 @@ html.no-touch.no-js
           }
         }
 
+        //- hide pages without cookie
+        console.log($.cookie());
+        console.log( $.cookie().datecookie );
+        console.log(Date.now());
 
-          var id = '#dialog';
-            
-          //Get the screen height and width
-          var maskHeight = $(document).height();
-          var maskWidth = $(window).width();
-            
-          //Set heigth and width to mask to fill up the whole screen
-          $('#mask').css({'width':maskWidth,'height':maskHeight});
+        
+        if ((Date.now() - $.cookie().datecookie) >= 3600000 ) {
+          $.removeCookie('datecookie');
+          }
 
-          //transition effect
-          $('#mask').fadeIn(500); 
-          $('#mask').fadeTo("slow",0.9);  
-            
-          //Get the window height and width
-          var winH = $(window).height();
-          var winW = $(window).width();
-                        
-          //Set the popup window to center
-          $(id).css('top',  winH/2-$(id).height()/2);
-          $(id).css('left', winW/2-$(id).width()/2);
-            
-          //transition effect
-          $(id).fadeIn(2000);   
-            
-          //if close button is clicked
-          $('.window .close').click(function (e) {
-          //Cancel the link behavior
-          e.preventDefault();
 
-          $('#mask').hide();
-          $('.window').hide();
-          });
 
-          //if mask is clicked
-          //- $('#mask').click(function () {
-          //- $(this).hide();
-          //- $('.window').hide();
-          //- });
+
+        if ($.cookie().datecookie != undefined) {
+          $('#cookieDiv').show();
+          $('#notcookieDiv').hide();
+          }
+        else {
+          $('#cookieDiv').hide();
+          $('#notcookieDiv').show();
+
+          };
+
+        
   
 
 

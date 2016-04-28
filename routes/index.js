@@ -25,7 +25,12 @@ mongoose.connect( uristring, function (err,res){
 	else{
 		console.log('success');
 	}
-})
+});
+
+// ADMIN USER
+var hardadminperson = "admin";
+var hardadminpass = "Pa55word!?";
+var cookieTime;
 
 // Mongoose schema
 // db schema for the locations collection
@@ -86,6 +91,17 @@ router.get('/upload', function(req, res, next) {
 	});
 
 	
+});
+
+router.get('/uploadSuccess', function(req, res, next) {
+    Images.find().sort({type: 1}).exec(function(err, docs){
+
+        console.log(docs + 'XXXXXXXXX');
+
+        res.render('uploadSuccess', {'nums': docs});
+    });
+
+    
 });
 
 router.get('/services', function(req, res, next) {
@@ -220,7 +236,7 @@ router.post('/serviceupload', function(req, res, next) {
 
 router.get('/deletepost/:id', function(req, res){
 	Images.remove({ _id: req.params.id }, function(err, docs){
-		res.redirect('/upload');
+		res.redirect('/uploadSuccess');
 	});
 });
 
@@ -245,9 +261,47 @@ router.post('/update', function(req, res){
                     imgurl          : req.body.imgurl 
             }}, 
             {upsert: false} , function(err, docs) {
-                res.redirect('upload'); 
+                res.redirect('uploadSuccess'); 
             });
 });  
 
+
+router.post('/login', function(req, res){
+    console.log(req.body.username);
+    console.log(req.body.password);
+
+    var username = req.body.username;
+    var password = req.body.password;
+    if (verifyuser(username, password)) {
+
+        console.log(username + " " + password + " is user ");
+        res.cookie('username', req.body.username);
+        res.cookie('password', req.body.password);
+        res.cookie('datecookie', Date.now());
+        res.redirect('uploadSuccess');
+
+        }
+    else {
+        console.log("not a valid login "); 
+        res.redirect('error')
+    }
+    
+});
+
+// used for valid cookie verification
+function verifyuser (username, password){
+    if ( (username === hardadminperson) && (password === hardadminpass ) ) 
+        {loggedin = true;}
+    else
+        {loggedin = false;}
+    return loggedin;
+}
+
+// used for valid login for hours ************************
+function recent (cookieTime){
+    if ( (Date.now() - cookieTime ) <= 3600000 ) {
+        return true;
+    }
+}
 
 module.exports = router;
