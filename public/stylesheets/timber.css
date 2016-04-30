@@ -4553,6 +4553,22 @@ div.test:hover span.hovering-image-content {
   width: 250px;
   left: 250px; }
 
+@media screen and (min-width: 942px) and (max-width: 1243px) {
+  #home-inner-text {
+    font-size: 18px !important; } }
+
+@media screen and (min-width: 771px) and (max-width: 942px) {
+  #media-body-home {
+    padding-top: 5% !important; } }
+
+@media screen and (min-width: 481px) and (max-width: 590px) {
+  #media-body-home {
+    padding-top: 5% !important; } }
+
+@media screen and (min-width: 825px) and (max-width: 1237px) {
+  #portfolio-inner-text {
+    font-size: 22px !important; } }
+
 @media screen and (min-width: 1030px) and (max-width: 1250px) {
   .serv-img {
     width: 100%; }
