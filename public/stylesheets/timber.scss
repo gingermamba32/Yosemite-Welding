@@ -4316,17 +4316,19 @@ table td {
 
 }
 a .order-place-hover:hover{
-  background-color: #e67300;
+  background-color: #ffa366;
 }
 
 .mountain-image {
   padding-top:5px;
+  border-bottom: 3px solid white;
+  margin-bottom: -4px;
 }
 
 .mountain-div {
  text-align: center; 
   margin:0 auto;
-  border-bottom: 3px solid black;
+  border-bottom: 1.5px solid black;
 }
 
 .main-title{
@@ -4437,7 +4439,13 @@ a .order-place-hover:hover{
 .header-link {
   color: #fff;
   font-size: 16px;
+  text-decoration: none !important;
 }
+
+.header-link:hover{
+  color: #666;
+}
+
 .header-align-right{
   text-align: right;
 }
@@ -4690,6 +4698,7 @@ left: 60px;;
 
 .service-container {
   width: 80%;
+  max-width: 1249px;
   margin-left: 10%;
   margin-right: 10%;
   overflow: hidden;
@@ -4824,7 +4833,7 @@ div.test:hover span.hovering-image-content{
   left: 0;
   opacity: 0;
   overflow: hidden;
-  padding: 3.75em 3em;
+  padding-top: 35%;
   position: absolute;
   text-align: center;
   top: 0;
