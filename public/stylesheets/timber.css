@@ -4128,7 +4128,7 @@ a .order-place-hover:hover {
 .middle-nav-link {
   font-size: 120%;
   font-weight: 700;
-  font-family: Copperplate,Copperplate Gothic Light,fantasy; }
+  font-family: Copperplate, 'Alegreya SC', 'Copperplate Gothic Light',fantasy; }
 
 .home-portfolio {
   width: 100%; }
@@ -4543,7 +4543,7 @@ div.test:hover span.hovering-image-content {
   height: 300px;
   padding: 10px;
   background-color: #ffffff;
-  font-family: 'Segoe UI Light', sans-serif;
+  font-family: sans-serif;
   font-size: 15pt; }
 
 #popupfoot {
