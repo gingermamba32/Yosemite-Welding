@@ -125,7 +125,8 @@ router.get('/services', function(req, res, next) {
 
 router.post('/send', function(req, res, next){
 	console.log(req.body.email + 'sfsdfsdfsdf');
-
+    console.log(process.env.EMAIL);
+    console.log(process.env.PASSWORD);
 	var transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
@@ -144,10 +145,10 @@ router.post('/send', function(req, res, next){
 	transporter.sendMail(mailOptions, function(error, info){
     if(error){
         console.log(error);
-        res.json({error: 'Please contact us here!'});
+        res.redirect('error');
     } else{
         console.log('Message sent: ' + info.response);
-        res.redirect('/success');
+        res.redirect('/success.html');
     	};
 	});
 
@@ -247,7 +248,7 @@ router.get('/updatepost/:id', function(req,res){
     });
 });
 
-
+// include the updating the image and its url
 router.post('/update', function(req, res){
     console.log(req.body.id + ' Hello XXXXXXXXXXXX');
     Images.findOneAndUpdate(
