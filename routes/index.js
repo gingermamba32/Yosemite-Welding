@@ -5,7 +5,16 @@ var nodemailer = require('nodemailer');
 var busboy          = require('connect-busboy');
 var fs              = require('fs');
 var mongoose = require('mongoose');
+var cloudinary = require('cloudinary');
 //var imageMagick     = gm.subClass({ imageMagick: true }),  //for the heroku dependencies
+
+// cloudinary config.....need config variable and hide the cloudinary criteria
+cloudinary.config({ 
+  cloud_name: 'gingermamba32', 
+  api_key: '513139441632682', 
+  api_secret: 'NkHTHliVuwat9Y05H1dFPf53gvU' 
+});
+
 
 
 // Database
@@ -172,24 +181,51 @@ router.post('/portfolioupload', function(req, res, next) {
         fstream = fs.createWriteStream('./public/uploads/' + filename);
         file.pipe(fstream);
 
+        // save image to cdn
+        cloudinary.uploader.upload('public/uploads/' + filename, function(result) { 
+          console.log(result);
+          console.log('XXXXXXXXX'); 
+          console.log(result.secure_url);
+          console.log('XXXXXXXXX'); 
+          var newurl = result.secure_url;
+
+          console.log(req.body.title + 'It works');
+          console.log(req.body.link + 'It works');
+
+            var newimage = new Images({
+                title: req.body.title,
+                type: 'portfolio',
+                link: req.body.link,
+                imgurl: newurl
+            });
+
+            newimage.save(function(err, callback){
+                if (err) {console.log(err)};
+                console.log('success');
+            });
+
+        });
+
         // save file url
-        console.log("Uploading: " + filename);
-        var newurl = '/uploads/' + filename;
-        console.log(req.body.title + 'It works');
-        console.log(req.body.link + 'It works');
-        var newimage = new Images({
-        	title: req.body.title,
-        	type: 'portfolio',
-        	link: req.body.link,
-        	imgurl: newurl
-        })
+        //console.log("Uploading: " + filename);
+        // var newurl = '/uploads/' + filename;
+        // console.log(req.body.title + 'It works');
+        // console.log(req.body.link + 'It works');
+        // var newimage = new Images({
+        // 	title: req.body.title,
+        // 	type: 'portfolio',
+        // 	link: req.body.link,
+        // 	imgurl: newurl
+        // });
+
+
 
 
         fstream.on('close', function () {
-        	newimage.save(function(err, callback){
+        	//newimage.save(function(err, callback){
 
             res.redirect('/portfolio');
-        	});
+        	//});
         });
     });
 
