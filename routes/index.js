@@ -183,10 +183,6 @@ router.post('/portfolioupload', function(req, res, next) {
 
         // save image to cdn
         cloudinary.uploader.upload('public/uploads/' + filename, function(result) { 
-          console.log(result);
-          console.log('XXXXXXXXX'); 
-          console.log(result.secure_url);
-          console.log('XXXXXXXXX'); 
           var newurl = result.secure_url;
 
           console.log(req.body.title + 'It works');
@@ -206,26 +202,9 @@ router.post('/portfolioupload', function(req, res, next) {
 
         });
 
-        // save file url
-        //console.log("Uploading: " + filename);
-        // var newurl = '/uploads/' + filename;
-        // console.log(req.body.title + 'It works');
-        // console.log(req.body.link + 'It works');
-        // var newimage = new Images({
-        // 	title: req.body.title,
-        // 	type: 'portfolio',
-        // 	link: req.body.link,
-        // 	imgurl: newurl
-        // });
-
-
-
-
         fstream.on('close', function () {
-        	//newimage.save(function(err, callback){
-
             res.redirect('/portfolio');
-        	//});
+        	
         });
     });
 
@@ -248,25 +227,30 @@ router.post('/serviceupload', function(req, res, next) {
         fstream = fs.createWriteStream('./public/uploads/' + filename);
         file.pipe(fstream);
 
-        // save file url
-        console.log("Uploading: " + filename);
-        var newurl = '/uploads/' + filename;
-        console.log(req.body.title + 'It works');
-        console.log(req.body.link + 'It works');
-        var newimage = new Images({
-        	title: req.body.title,
-        	text: req.body.text,
-        	type: 'services',
-        	link: req.body.link,
-        	imgurl: newurl
-        })
+                // save image to cdn
+        cloudinary.uploader.upload('public/uploads/' + filename, function(result) { 
+          var newurl = result.secure_url;
 
+          console.log(req.body.title + 'It works');
+          console.log(req.body.link + 'It works');
+
+            var newimage = new Images({
+                title: req.body.title,
+                type: 'services',
+                link: req.body.link,
+                imgurl: newurl
+            });
+
+            newimage.save(function(err, callback){
+                if (err) {console.log(err)};
+                console.log('success');
+            });
+
+        });
 
         fstream.on('close', function () {
-        	newimage.save(function(err, callback){
-
-            res.redirect('/services');
-        	});
+            res.redirect('/portfolio');
+            
         });
     });
 
