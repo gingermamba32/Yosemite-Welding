@@ -203,7 +203,10 @@ router.post('/portfolioupload', function(req, res, next) {
         });
 
         fstream.on('close', function () {
-            res.redirect('/portfolio');
+            Images.find().sort({type: 1}).exec(function(err, docs){
+            console.log(docs + 'XXXXXXXXX');
+            res.render('upload', {'nums': docs});
+        });
         	
         });
     });
@@ -249,7 +252,10 @@ router.post('/serviceupload', function(req, res, next) {
         });
 
         fstream.on('close', function () {
-            res.redirect('/portfolio');
+            Images.find().sort({type: 1}).exec(function(err, docs){
+            console.log(docs + 'XXXXXXXXX');
+            res.render('upload', {'nums': docs});
+        });
             
         });
     });
