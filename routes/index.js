@@ -11,8 +11,8 @@ var cloudinary = require('cloudinary');
 // cloudinary config.....need config variable and hide the cloudinary criteria
 cloudinary.config({ 
   cloud_name: 'gingermamba32', 
-  api_key: process.env.CLOUDINARY_API_KEY, 
-  api_secret: process.env.CLOUDINARY_API_SECRET 
+  api_key: '513139441632682', 
+  api_secret: 'NkHTHliVuwat9Y05H1dFPf53gvU' 
 });
 
 
@@ -182,7 +182,7 @@ router.post('/portfolioupload', function(req, res, next) {
         file.pipe(fstream);
 
         // save image to cdn
-        cloudinary.uploader.upload('public/uploads/' + filename, function(result) { 
+        cloudinary.uploader.upload('./public/uploads/' + filename, function(result) { 
           var newurl = result.secure_url;
 
           console.log(req.body.title + 'It works');
@@ -231,7 +231,7 @@ router.post('/serviceupload', function(req, res, next) {
         file.pipe(fstream);
 
                 // save image to cdn
-        cloudinary.uploader.upload('public/uploads/' + filename, function(result) { 
+        cloudinary.uploader.upload('./public/uploads/' + filename, function(result) { 
           var newurl = result.secure_url;
 
           console.log(req.body.title + 'It works');
