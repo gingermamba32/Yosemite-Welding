@@ -182,11 +182,33 @@ router.post('/portfolioupload', function(req, res, next) {
         file.pipe(fstream);
 
         // save image to cdn
-        cloudinary.uploader.upload('./public/uploads/' + filename, function(result) { 
-          var newurl = result.secure_url;
+        // cloudinary.uploader.upload('./public/uploads/' + filename, function(result) { 
+        //   var newurl = result.secure_url;
 
-          console.log(req.body.title + 'It works');
-          console.log(req.body.link + 'It works');
+        //   console.log(req.body.title + 'It works');
+        //   console.log(req.body.link + 'It works');
+
+        //     var newimage = new Images({
+        //         title: req.body.title,
+        //         type: 'portfolio',
+        //         link: req.body.link,
+        //         imgurl: newurl
+        //     });
+
+        //     newimage.save(function(err, callback){
+        //         if (err) {console.log(err)};
+        //         console.log('success');
+        //     });
+
+        // });
+
+        fstream.on('close', function () {
+
+            cloudinary.uploader.upload('./public/uploads/' + filename, function(result) { 
+                var newurl = result.secure_url;
+
+                console.log(req.body.title + 'It works');
+                console.log(req.body.link + 'It works');
 
             var newimage = new Images({
                 title: req.body.title,
@@ -200,9 +222,9 @@ router.post('/portfolioupload', function(req, res, next) {
                 console.log('success');
             });
 
-        });
+            });
 
-        fstream.on('close', function () {
+
             Images.find().sort({type: 1}).exec(function(err, docs){
             console.log(docs + 'XXXXXXXXX');
             res.render('upload', {'nums': docs});
@@ -231,11 +253,33 @@ router.post('/serviceupload', function(req, res, next) {
         file.pipe(fstream);
 
                 // save image to cdn
-        cloudinary.uploader.upload('./public/uploads/' + filename, function(result) { 
-          var newurl = result.secure_url;
+        // cloudinary.uploader.upload('./public/uploads/' + filename, function(result) { 
+        //   var newurl = result.secure_url;
 
-          console.log(req.body.title + 'It works');
-          console.log(req.body.link + 'It works');
+        //   console.log(req.body.title + 'It works');
+        //   console.log(req.body.link + 'It works');
+
+        //     var newimage = new Images({
+        //         title: req.body.title,
+        //         type: 'services',
+        //         link: req.body.link,
+        //         imgurl: newurl
+        //     });
+
+        //     newimage.save(function(err, callback){
+        //         if (err) {console.log(err)};
+        //         console.log('success');
+        //     });
+
+        // });
+
+        fstream.on('close', function () {
+
+            cloudinary.uploader.upload('./public/uploads/' + filename, function(result) { 
+            var newurl = result.secure_url;
+
+                console.log(req.body.title + 'It works');
+                console.log(req.body.link + 'It works');
 
             var newimage = new Images({
                 title: req.body.title,
@@ -249,9 +293,7 @@ router.post('/serviceupload', function(req, res, next) {
                 console.log('success');
             });
 
-        });
-
-        fstream.on('close', function () {
+            });
             Images.find().sort({type: 1}).exec(function(err, docs){
             console.log(docs + 'XXXXXXXXX');
             res.render('upload', {'nums': docs});
