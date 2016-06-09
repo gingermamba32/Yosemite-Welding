@@ -11,8 +11,8 @@ var cloudinary = require('cloudinary');
 // cloudinary config.....need config variable and hide the cloudinary criteria
 cloudinary.config({ 
   cloud_name: 'gingermamba32', 
-  api_key: '513139441632682', 
-  api_secret: 'NkHTHliVuwat9Y05H1dFPf53gvU' 
+  api_key: process.env.CLOUDINARY_API_KEY, 
+  api_secret: process.env.CLOUDINARY_API_SECRET 
 });
 
 
