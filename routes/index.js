@@ -285,6 +285,7 @@ router.post('/serviceupload', function(req, res, next) {
                 title: req.body.title,
                 type: 'services',
                 link: req.body.link,
+                text: req.body.text,
                 imgurl: newurl
             });
 
