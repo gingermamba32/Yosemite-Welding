@@ -80,7 +80,7 @@ html.no-touch.no-js
         li
           input.field-style.field-full.align-none(type='text', name='title', placeholder='Title', value='#{post[0].title}')
         li
-          textarea.field-style(type='text', name='text', placeholder='Services paragraph if applicable', value='#{post[0].text}')
+          textarea.field-style.field-full.align-none(type='text', name='text')=post[0].text
         li
           input.field-style.field-full.align-none(type='text', name='link', placeholder='Where will this piece direct the user?', value='#{post[0].link}')
         li
